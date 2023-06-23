@@ -11,7 +11,6 @@ public class ClasseMedicao {
         MedicaoDao medicaoDao = new MedicaoDao();
 
         Medicao medicao = new Medicao();
-        medicao.setId(55);
         medicao.setMes("");
         medicao.setAno("");
         medicao.setData_medicao(new Date());

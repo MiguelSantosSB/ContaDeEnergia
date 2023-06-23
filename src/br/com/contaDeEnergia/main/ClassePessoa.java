@@ -12,7 +12,6 @@ public class ClassePessoa {
 
         Pessoa pessoa = new Pessoa();
         pessoa.setNome("Miguel");
-        pessoa.setId(55);
         pessoa.setCpf("57679294089");
         pessoa.setCnpj("29296788000107");
 

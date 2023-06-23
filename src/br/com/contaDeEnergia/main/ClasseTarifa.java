@@ -9,7 +9,6 @@ public class ClasseTarifa {
         TarifaDao tarifaDao = new TarifaDao();
 
         Tarifa tarifa = new Tarifa();
-        tarifa.setId(55);
         tarifa.setTaxa("");
         tarifa.setLei("");
         tarifa.setData_inicio("");

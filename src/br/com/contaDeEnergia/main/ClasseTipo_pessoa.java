@@ -9,7 +9,6 @@ public class ClasseTipo_pessoa {
         Tipo_PessoaDao  tipo_pessoaDao = new Tipo_PessoaDao();
 
         Tipo_Pessoa tipo_pessoa = new Tipo_Pessoa();
-        tipo_pessoa.setId(55);
         //funcionario ou cliente
         tipo_pessoa.setDescricao("cliente");
 

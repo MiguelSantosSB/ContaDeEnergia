@@ -9,7 +9,6 @@ public class ClasseCliente {
         ClienteDao clienteDao = new ClienteDao();
 
         Cliente cliente = new Cliente();
-        cliente.setId(55);
         cliente.setNum_documento("229839678");
         cliente.setNum_cliente("1");
 

@@ -2,10 +2,12 @@ package br.com.contaDeEnergia.tabelas;
 
 import br.com.contaDeEnergia.factory.ConnectionFactory;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.SQLDataException;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-public class TabelaPessoa {
-
+public class TabelaMedidor {
     public static void main(String[] args) {
 
         Connection conn = null;
@@ -15,16 +17,9 @@ public class TabelaPessoa {
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.createStatement();
 
-            String sql = "CREATE TABLE pessoa" +
-                        "(id INTEGER PRIMARY KEY AUTO_INCREMENT," +
-                        "nome VARCHAR(45) NOT NULL," +
-                        "cpf VARCHAR(45) NOT NULL," +
-                        "cnpj VARCHAR(45)," +
-                        "tipo_pessoa_id INT,"+
-                        "PRIMARY KEY (id),"+
-                        "CONSTRAINT fk_tipo_pessoa_id,"+
-                            "FOREIGN KEY (tipo_pessoa_id),"+
-                            "REFERENCES tipo_pessoa (id))";
+            String sql = "CREATE TABLE medidor"+
+                    "(id INTEGER PRIMARY KEY AUTO_INCREMENT,"+
+                    "descricao VARCHAR(45) NOT NULL)";
 
             pstm.executeUpdate(sql);
         }catch(SQLDataException e){

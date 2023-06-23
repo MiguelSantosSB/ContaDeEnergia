@@ -9,7 +9,6 @@ public class ClasseFuncionario {
         FuncionarioDao funcionarioDao = new FuncionarioDao();
 
         Funcionario funcionario = new Funcionario();
-        funcionario.setId(55);
         funcionario.setCodigo_funcional("40028922");
 
         funcionarioDao.save(funcionario);

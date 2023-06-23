@@ -11,7 +11,6 @@ public class ClasseCobranca {
         CobrancaDao cobrancaDao = new CobrancaDao();
 
         Cobranca cobranca = new Cobranca();
-        cobranca.setId(55);
         cobranca.setMes_referencia("");
         cobranca.setAno_referencia("");
 

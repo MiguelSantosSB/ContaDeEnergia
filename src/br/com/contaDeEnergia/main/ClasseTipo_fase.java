@@ -10,7 +10,6 @@ public class ClasseTipo_fase {
         Tipo_FaseDao tipoFaseDao = new Tipo_FaseDao();
 
         Tipo_Fase tipo_fase = new Tipo_Fase();
-        tipo_fase.setId(55);
         tipo_fase.setDescricao("");
 
         tipoFaseDao.save(tipo_fase);

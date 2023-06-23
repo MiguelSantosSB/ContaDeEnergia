@@ -11,7 +11,6 @@ public class ClasseContrato {
         ContratoDao contratoDao = new ContratoDao();
 
         Contrato contrato = new Contrato();
-        contrato.setId(55);
         contrato.setDescricao("ta pagoooo");
         contrato.setData_criacao(new Date());
         contrato.setData_inicio(new Date());

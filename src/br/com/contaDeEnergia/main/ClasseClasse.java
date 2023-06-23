@@ -9,8 +9,7 @@ public class ClasseClasse {
         ClasseDao classeDao = new ClasseDao();
 
         Classe classe = new Classe();
-        classe.setId(55);
-        classe.setDescricao("");
+        classe.setDescricao("a");
 
         classeDao.save(classe);
     }
