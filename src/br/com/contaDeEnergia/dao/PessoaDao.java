@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 
 public class PessoaDao {
 
-    public void save(Pessoa pessoa){
+    public void create(Pessoa pessoa){
         String sql = "INSERT INTO pessoa(nome, cpf, cnpj) VALUES (?, ?, ?)";
 
         Connection conn = null;

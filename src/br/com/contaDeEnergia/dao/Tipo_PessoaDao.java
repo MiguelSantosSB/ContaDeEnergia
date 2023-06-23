@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 
 public class Tipo_PessoaDao {
 
-    public void save(Tipo_Pessoa tipo_pessoa) {
+    public void create(Tipo_Pessoa tipo_pessoa) {
         String sql = "INSERT INTO tipo_pessoa(descricao) VALUES (?)";
 
         Connection conn = null;

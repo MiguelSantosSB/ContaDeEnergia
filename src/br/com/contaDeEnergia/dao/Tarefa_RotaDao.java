@@ -8,7 +8,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 
 public class Tarefa_RotaDao {
-    public void save(Tarefa_Rota tarefa_rota){
+    public void create(Tarefa_Rota tarefa_rota){
 
         String sql = "INSERT INTO tarefa_rota(observacao, data_inicio, data_fim) VALUES (?, ?, ?)";
 

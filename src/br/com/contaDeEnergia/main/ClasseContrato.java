@@ -15,6 +15,6 @@ public class ClasseContrato {
         contrato.setData_criacao(new Date());
         contrato.setData_inicio(new Date());
 
-        contratoDao.save(contrato);
+        contratoDao.create(contrato);
     }
 }

@@ -12,6 +12,6 @@ public class ClasseTipo_pessoa {
         //funcionario ou cliente
         tipo_pessoa.setDescricao("cliente");
 
-        tipo_pessoaDao.save(tipo_pessoa);
+        tipo_pessoaDao.create(tipo_pessoa);
     }
 }

@@ -12,6 +12,6 @@ public class ClasseCliente {
         cliente.setNum_documento("229839678");
         cliente.setNum_cliente("1");
 
-        clienteDao.save(cliente);
+        clienteDao.create(cliente);
     }
 }

@@ -11,6 +11,6 @@ public class ClasseMedidor {
         Medidor medidor = new Medidor();
         medidor.setDescricao("medidor funcionando");
 
-        medidorDao.save(medidor);
+        medidorDao.create(medidor);
     }
 }

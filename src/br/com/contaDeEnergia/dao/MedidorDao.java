@@ -8,7 +8,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 
 public class MedidorDao {
-    public void save(Medidor medidor){
+    public void create(Medidor medidor){
 
         String sql = "INSERT INTO medidor(descricao) VALUES (?)";
 

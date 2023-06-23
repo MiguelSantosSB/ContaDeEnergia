@@ -14,6 +14,6 @@ public class ClassePoste {
         poste.setCodigo("5562322");
         poste.setObservacao("poste ok viu, nao caiu");
 
-        posteDao.save(poste);
+        posteDao.create(poste);
     }
 }

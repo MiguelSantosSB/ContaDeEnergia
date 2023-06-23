@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 public class PosteDao {
-    public void save(Poste poste){
+    public void create(Poste poste){
 
         String sql = "INSERT INTO poste(latitude, longitude, codigo, observacao) VALUES (?, ?, ?, ?)";
 

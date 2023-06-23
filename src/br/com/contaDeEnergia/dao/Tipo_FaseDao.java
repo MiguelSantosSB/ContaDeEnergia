@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 public class Tipo_FaseDao {
-    public void save(Tipo_Fase tipo_fase){
+    public void create(Tipo_Fase tipo_fase){
         String sql = "INSERT INTO tipo_fase(descricao) VALUES (?)";
 
         Connection conn = null;

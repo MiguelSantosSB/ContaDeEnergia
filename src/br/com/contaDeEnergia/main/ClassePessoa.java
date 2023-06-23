@@ -16,6 +16,6 @@ public class ClassePessoa {
         pessoa.setCnpj("29296788000107");
 
 
-        pessoaDao.save(pessoa);
+        pessoaDao.create(pessoa);
     }
 }

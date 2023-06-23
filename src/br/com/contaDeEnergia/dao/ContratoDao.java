@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 public class ContratoDao {
-    public void save(Contrato contrato){
+    public void create(Contrato contrato){
 
         String sql = "INSERT INTO contrato(descricao, data_inicio, data_criacao) VALUES (?, ?, ?)";
 

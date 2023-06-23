@@ -11,6 +11,6 @@ public class ClasseClasse {
         Classe classe = new Classe();
         classe.setDescricao("a");
 
-        classeDao.save(classe);
+        classeDao.create(classe);
     }
 }

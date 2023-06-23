@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 public class TarifaDao {
-    public void save(Tarifa tarifa){
+    public void create(Tarifa tarifa){
         String sql = "INSERT INTO tarifa(taxa, lei, data_inicio, data_fim, aliquota_ICMS) VALUES (?, ?, ?, ?, ?)";
 
         Connection conn = null;

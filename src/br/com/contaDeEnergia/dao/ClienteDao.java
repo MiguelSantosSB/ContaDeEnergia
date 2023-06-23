@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 public class ClienteDao {
-    public void save(Cliente cliente){
+    public void create(Cliente cliente){
         String sql = "INSERT INTO cliente(num_documento, num_cliente) VALUES (?, ?)";
 
         Connection conn = null;

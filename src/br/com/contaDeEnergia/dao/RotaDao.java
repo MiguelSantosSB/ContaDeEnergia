@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 public class RotaDao {
-    public void save(Rota rota){
+    public void create(Rota rota){
 
         String sql = "INSERT INTO rota(descricao) VALUES (?)";
 

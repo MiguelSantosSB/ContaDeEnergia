@@ -11,6 +11,6 @@ public class ClasseRota {
         Rota rota = new Rota();
         rota.setDescricao("rua tal, numero tal, bairro tal");
 
-        rotaDao.save(rota);
+        rotaDao.create(rota);
     }
 }

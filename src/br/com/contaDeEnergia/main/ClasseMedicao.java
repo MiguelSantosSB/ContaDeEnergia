@@ -16,6 +16,6 @@ public class ClasseMedicao {
         medicao.setData_medicao(new Date());
         medicao.setConsumo("");
 
-        medicaoDao.save(medicao);
+        medicaoDao.create(medicao);
     }
 }

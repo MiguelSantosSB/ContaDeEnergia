@@ -11,6 +11,6 @@ public class ClasseFuncionario {
         Funcionario funcionario = new Funcionario();
         funcionario.setCodigo_funcional("40028922");
 
-        funcionarioDao.save(funcionario);
+        funcionarioDao.create(funcionario);
     }
 }

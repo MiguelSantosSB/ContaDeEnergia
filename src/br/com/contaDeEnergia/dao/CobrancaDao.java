@@ -8,7 +8,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 
 public class CobrancaDao {
-    public void save(Cobranca cobranca){
+    public void create(Cobranca cobranca){
 
         String sql = "INSERT INTO cobranca(mes_referencia, ano_referencia) VALUES (?, ?)";
 

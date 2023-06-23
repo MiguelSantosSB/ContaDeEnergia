@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 public class FuncionarioDao {
-    public void save(Funcionario funcionario){
+    public void create(Funcionario funcionario){
 
         String sql = "INSERT INTO funcionario(codigo_funcional) VALUES (?)";
 

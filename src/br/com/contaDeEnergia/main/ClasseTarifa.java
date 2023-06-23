@@ -15,6 +15,6 @@ public class ClasseTarifa {
         tarifa.setData_fim("");
         tarifa.setAliquota_ICMS("");
 
-        tarifaDao.save(tarifa);
+        tarifaDao.create(tarifa);
     }
 }

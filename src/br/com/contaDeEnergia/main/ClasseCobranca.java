@@ -14,6 +14,6 @@ public class ClasseCobranca {
         cobranca.setMes_referencia("");
         cobranca.setAno_referencia("");
 
-        cobrancaDao.save(cobranca);
+        cobrancaDao.create(cobranca);
     }
 }

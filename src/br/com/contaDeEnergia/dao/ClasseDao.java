@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 public class ClasseDao {
-    public void save(Classe classe){
+    public void create(Classe classe){
         String sql = "INSERT INTO classe(descricao) VALUES (?)";
 
         Connection conn = null;
