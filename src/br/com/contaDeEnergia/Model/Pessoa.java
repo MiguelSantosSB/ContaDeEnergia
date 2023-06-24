@@ -6,6 +6,7 @@ public class Pessoa {
     private String nome;
     private String cpf;
     private String cnpj;
+    private int tipo_pessoa_id;
 
     public String getNome() {
         return nome;
@@ -39,5 +40,12 @@ public class Pessoa {
         this.cnpj = cnpj;
     }
 
+    public int getTipo_pessoa_id() {
+        return tipo_pessoa_id;
+    }
+
+    public void setTipo_pessoa_id(int tipo_pessoa_id) {
+        this.tipo_pessoa_id = tipo_pessoa_id;
+    }
 }
 

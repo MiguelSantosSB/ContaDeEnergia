@@ -12,6 +12,17 @@ public class ClasseCliente {
         cliente.setNum_documento("229839678");
         cliente.setNum_cliente("1");
 
-        clienteDao.create(cliente);
+        //clienteDao.create(cliente);
+
+        // Read
+        for(Cliente c : clienteDao.ReadCliente()){
+            System.out.println("Cliente:"+c.getId());
+            System.out.println("Cliente: "+c.getNum_cliente());
+            System.out.println("Cliente: "+c.getNum_documento());
+        }
+
+
+
+
     }
 }

@@ -12,7 +12,7 @@ public class ClasseTarefa_rota {
 
         Tarefa_Rota tarefaRota = new Tarefa_Rota();
         tarefaRota.setObservacao("esqueci");
-        tarefaRota.setData_inicio(new Date());
+        tarefaRota.setData_inicio(new Date(2023-6-27));
         tarefaRota.setData_fim(new Date(2023-6-27));
 
         tarefaRotaDao.create(tarefaRota);

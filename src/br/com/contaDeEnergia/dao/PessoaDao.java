@@ -1,6 +1,7 @@
 package br.com.contaDeEnergia.dao;
 
 import br.com.contaDeEnergia.Model.Pessoa;
+import br.com.contaDeEnergia.Model.Tipo_Pessoa;
 import br.com.contaDeEnergia.factory.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

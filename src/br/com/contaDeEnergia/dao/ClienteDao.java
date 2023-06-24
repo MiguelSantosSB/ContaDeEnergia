@@ -5,6 +5,9 @@ import br.com.contaDeEnergia.factory.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClienteDao {
     public void create(Cliente cliente){
@@ -38,5 +41,51 @@ public class ClienteDao {
             }
         }
 
+    }
+    public List<Cliente> ReadCliente(){
+
+        String sql = "SELECT * FROM cliente";
+
+        List<Cliente> clientes = new ArrayList<Cliente>();
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        // recuper os dados do banco
+        ResultSet rset = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            rset = pstm.executeQuery();
+
+            while(rset.next()){
+                Cliente cliente = new Cliente();
+                //Pegar o id
+                cliente.setId(rset.getInt("id"));
+                cliente.setNum_documento(rset.getString("num_documento"));
+                cliente.setNum_cliente(rset.getString("num_cliente"));
+
+                clientes.add(cliente);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(rset!=null){
+                    rset.close();
+                }
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if (conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return clientes;
     }
 }

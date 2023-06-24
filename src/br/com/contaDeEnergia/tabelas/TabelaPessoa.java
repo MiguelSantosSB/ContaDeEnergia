@@ -15,17 +15,13 @@ public class TabelaPessoa {
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.createStatement();
 
-            String sql = "CREATE TABLE pessoa" +
-                        "(id INTEGER PRIMARY KEY AUTO_INCREMENT," +
-                        "nome VARCHAR(45) NOT NULL," +
-                        "cpf VARCHAR(45) UNIQUE NULL," +
-                        "cnpj VARCHAR(45) UNIQUE NULL," +
-                        "tipo_pessoa_id INT,"+
-                        "PRIMARY KEY (id),"+
-                        "ALTER TABLE fatura.pessoa ADD CONSTRAINT pessoa_tipo_pessoa_id FOREIGN KEY (tipo_pessoa) REFERENCES fatura.tipo_pessoa (id))";
-                        /*"CONSTRAINT fk_tipo_pessoa_id,"+
-                            "FOREIGN KEY (tipo_pessoa_id),"+
-                            "REFERENCES tipo_pessoa (id))";*/
+            String sql = " CREATE TABLE pessoa " +
+                        " (id INTEGER PRIMARY KEY AUTO_INCREMENT, " +
+                        " nome VARCHAR(45) NOT NULL, " +
+                        " cpf VARCHAR(45) UNIQUE NULL, " +
+                        " cnpj VARCHAR(45) UNIQUE NULL, " +
+                        " tipo_pessoa_id INT "+ //NOT NULL
+                        " REFERENCES tipo_pessoa(id)) ";
 
             pstm.executeUpdate(sql);
         }catch(SQLDataException e){
