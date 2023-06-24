@@ -7,43 +7,44 @@ import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TabelaTarefa_Rota {
+public class Classe {
     public static void main(String[] args) {
 
         Connection conn = null;
         Statement pstm = null;
 
-        try {
+        try{
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.createStatement();
 
-            String sql = "CREATE TABLE tarefa_rota" +
-                    "(id SERIAL NOT NULL," +
-                    "observacao VARCHAR(45) NULL,"+
-                    "data_inicio TIMESTAMP NULL,"+
-                    "data_fim DATE NULL)";
+            String sql = "CREATE TABLE classe"+
+                    " (id INT NOT NULL AUTO_INCREMENT, "+
+                    " descricao VARCHAR(45) NOT NULL, "+
+                    " tipo_fase_id INT NULL ,"+
+
+                    " PRIMARY KEY (id),"+
+                    " FOREIGN KEY (tipo_fase_id)"+
+                    " REFERENCES tipofase(id))";
 
             pstm.executeUpdate(sql);
-        } catch (SQLDataException e) {
+        }catch(SQLDataException e){
             e.printStackTrace();
-        } catch (Exception e) {
+        }catch(Exception e){
             e.printStackTrace();
-        } finally {
-            try {
-                if (pstm != null) {
+        }finally {
+            try{
+                if(pstm!=null){
                     conn.close();
                 }
-            } catch (SQLException e) {
+            }catch(SQLException e){
                 e.printStackTrace();
             }
-        }
-        try {
-            if (conn != null) {
+        }try{
+            if(conn!=null){
                 conn.close();
             }
-        } catch (SQLException e) {
+        }catch(SQLException e){
             e.printStackTrace();
         }
-
     }
 }

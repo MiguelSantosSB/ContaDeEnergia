@@ -1,14 +1,14 @@
 package br.com.contaDeEnergia.dao;
 
-import br.com.contaDeEnergia.Model.Tarifa;
+import br.com.contaDeEnergia.Model.TimeRota;
 import br.com.contaDeEnergia.factory.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-public class TarifaDao {
-    public void create(Tarifa tarifa){
-        String sql = "INSERT INTO tarifa(id ,taxa, lei, data_inicio, data_fim, aliquota_ICMS, classe_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+public class TimeRotaDao {
+    public void create(TimeRota timeRota){
+        String sql = "INSERT INTO timerota(funcionario_id, tarefa_rota_id) VALUES (?, ?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -18,13 +18,8 @@ public class TarifaDao {
             conn = ConnectionFactory.createConnectionToMySQL();
 
             pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, tarifa.getId());
-            pstm.setString(2, tarifa.getTaxa());
-            pstm.setString(3, tarifa.getLei());
-            pstm.setString(4, tarifa.getData_inicio());
-            pstm.setString(5, tarifa.getData_fim());
-            pstm.setString(6, tarifa.getAliquota_ICMS());
-            pstm.setInt(7, tarifa.getClasse_id());
+            pstm.setInt(1, timeRota.getFuncionario_id());
+            pstm.setInt(2, timeRota.getTarefa_rota_id());
 
             // Executa a query
             pstm.execute();
@@ -42,5 +37,6 @@ public class TarifaDao {
                 e.printStackTrace();
             }
         }
+
     }
 }

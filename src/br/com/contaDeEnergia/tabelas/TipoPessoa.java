@@ -4,7 +4,7 @@ import br.com.contaDeEnergia.factory.ConnectionFactory;
 
 import java.sql.*;
 
-public class TabelaTipo_Pessoa {
+public class TipoPessoa {
 
     public static void main(String[] args){
 
@@ -15,10 +15,10 @@ public class TabelaTipo_Pessoa {
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.createStatement();
 
-            String sql = "CREATE TABLE tipo_pessoa" +
-                    "(id SERIAL not null," +
-                    "descricao VARCHAR(45),"+
-                    "CONSTRAINT tipo_pessoa_key PRIMARY KEY(id))";
+            String sql = "CREATE TABLE tipopessoa" +
+                    " (id INT NOT NULL AUTO_INCREMENT, " +
+                    " descricao VARCHAR(45), "+
+                    " PRIMARY KEY(id)) ";
 
 
             pstm.executeUpdate(sql);

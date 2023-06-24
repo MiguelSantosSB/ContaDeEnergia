@@ -10,7 +10,7 @@ public class ClasseTipo_fase {
         Tipo_FaseDao tipoFaseDao = new Tipo_FaseDao();
 
         Tipo_Fase tipo_fase = new Tipo_Fase();
-        tipo_fase.setDescricao("");
+        tipo_fase.setDescricao("nao sei");
 
         tipoFaseDao.create(tipo_fase);
     }

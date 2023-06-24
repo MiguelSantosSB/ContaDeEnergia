@@ -7,19 +7,23 @@ import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TabelaMedidor {
+public class Funcionario {
     public static void main(String[] args) {
 
         Connection conn = null;
         Statement pstm = null;
-
         try{
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.createStatement();
 
-            String sql = "CREATE TABLE medidor"+
-                    "(id INTEGER PRIMARY KEY AUTO_INCREMENT,"+
-                    "descricao VARCHAR(45) NOT NULL)";
+            String sql = "CREATE TABLE funcionario"+
+                        " (id INT NOT NULL AUTO_INCREMENT, "+
+                        " codigo_funcional VARCHAR(45), "+
+                        " pessoa_id INT NOT NULL, "+
+
+                        " PRIMARY KEY (id), "+
+                        " FOREIGN KEY (pessoa_id)"+
+                        " REFERENCES pessoa(id))";
 
             pstm.executeUpdate(sql);
         }catch(SQLDataException e){

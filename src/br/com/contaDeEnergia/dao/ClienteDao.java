@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClienteDao {
-    public void create(Cliente cliente){
+    public void Create(Cliente cliente){
         String sql = "INSERT INTO cliente(num_documento, num_cliente) VALUES (?, ?)";
 
         Connection conn = null;

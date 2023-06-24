@@ -9,11 +9,13 @@ public class ClasseTarifa {
         TarifaDao tarifaDao = new TarifaDao();
 
         Tarifa tarifa = new Tarifa();
+        tarifa.setId(1);
         tarifa.setTaxa("");
         tarifa.setLei("");
         tarifa.setData_inicio("");
         tarifa.setData_fim("");
         tarifa.setAliquota_ICMS("");
+        tarifa.setClasse_id(1);
 
         tarifaDao.create(tarifa);
     }

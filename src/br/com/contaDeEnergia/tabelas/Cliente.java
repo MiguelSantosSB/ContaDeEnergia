@@ -7,7 +7,7 @@ import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TabelaTipo_fase {
+public class Cliente {
     public static void main(String[] args) {
 
         Connection conn = null;
@@ -17,9 +17,15 @@ public class TabelaTipo_fase {
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.createStatement();
 
-            String sql = "CREATE TABLE tipo_fase"+
-                    "(id INTEGER PRIMARY KEY AUTO_INCREMENT,"+
-                    "descricao VARCHAR(45) NOT NULL)";
+            String sql = "CREATE TABLE cliente"+
+                    " (id INT NOT NULL AUTO_INCREMENT, "+
+                    " num_documento VARCHAR(45) NOT NULL, "+
+                    " num_cliente VARCHAR(45) NOT NULL, "+
+                    " pessoa_id INT NOT NULL,"+
+
+                    " PRIMARY KEY (id),"+
+                    " FOREIGN KEY (pessoa_id)"+
+                    " REFERENCES pessoa(id))";
 
             pstm.executeUpdate(sql);
         }catch(SQLDataException e){

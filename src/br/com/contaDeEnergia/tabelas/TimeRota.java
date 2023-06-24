@@ -7,7 +7,7 @@ import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TabelaRota {
+public class TimeRota {
     public static void main(String[] args) {
 
         Connection conn = null;
@@ -17,9 +17,17 @@ public class TabelaRota {
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.createStatement();
 
-            String sql = "CREATE TABLE rota" +
-                    "(id SERIAL NOT NULL," +
-                    "descricao VARCHAR(45) NULL)";
+            String sql = "CREATE TABLE timerota" +
+                    " (id INT NOT NULL AUTO_INCREMENT, " +
+                    " funcionario_id INT NOT NULL,"+
+                    " tarefa_rota_id INT NOT NULL,"+
+
+                    " PRIMARY KEY (id),"+
+                    " FOREIGN KEY (tarefa_rota_id)"+
+                    " REFERENCES tarefarota(id),"+
+                    " FOREIGN KEY (funcionario_id)"+
+                    " REFERENCES funcionario(id))";
+
 
             pstm.executeUpdate(sql);
         } catch (SQLDataException e) {

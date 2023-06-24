@@ -14,6 +14,14 @@ public class ClasseCobranca {
         cobranca.setMes_referencia("");
         cobranca.setAno_referencia("");
 
-        cobrancaDao.create(cobranca);
+        //cobrancaDao.Create(cobranca);
+
+        // Read
+        for(Cobranca c : cobrancaDao.ReadCobranca()){
+            System.out.println("Cobanca:"+c.getId());
+            System.out.println("Cobranca: "+ c.getMes_referencia());
+            System.out.println("Cobranca: "+c.getAno_referencia());
+        }
+
     }
 }

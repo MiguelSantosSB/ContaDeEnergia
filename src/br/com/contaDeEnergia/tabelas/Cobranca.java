@@ -7,18 +7,30 @@ import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TabelaFuncionario {
+public class Cobranca {
     public static void main(String[] args) {
 
         Connection conn = null;
         Statement pstm = null;
+
         try{
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.createStatement();
 
-            String sql = "CREATE TABLE funcionario"+
-                        "(id SERIAL not null,"+
-                        "codigo_funcional VARCHAR(45))";
+            String sql = " CREATE TABLE cobranca "+
+                    " (id INT NOT NULL AUTO_INCREMENT, "+
+                    " mes_referencia VARCHAR(45) NOT NULL, "+
+                    " ano_referencia VARCHAR(45) NOT NULL, "+
+                    " tarifa_id INT NOT NULL , "+
+                    " medicao_id INT NOT NULL, "+
+
+                    " PRIMARY KEY (id), "+
+                    " FOREIGN KEY (tarifa_id) "+
+                    " REFERENCES tarifa(id)) ";
+
+
+
+
 
             pstm.executeUpdate(sql);
         }catch(SQLDataException e){

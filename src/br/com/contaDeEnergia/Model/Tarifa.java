@@ -8,6 +8,8 @@ public class Tarifa {
     private String data_inicio;
     private String data_fim;
     private String aliquota_ICMS;
+    private int classe_id;
+
 
     public int getId() {
         return id;
@@ -55,5 +57,12 @@ public class Tarifa {
 
     public void setAliquota_ICMS(String aliquota_ICMS) {
         this.aliquota_ICMS = aliquota_ICMS;
+    }
+    public int getClasse_id() {
+        return classe_id;
+    }
+
+    public void setClasse_id(int classe_id) {
+        this.classe_id = classe_id;
     }
 }

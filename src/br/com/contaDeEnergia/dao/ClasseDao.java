@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClasseDao {
-    public void create(Classe classe){
-        String sql = "INSERT INTO classe(descricao) VALUES (?)";
+    public void Create(Classe classe){
+        String sql = "INSERT INTO classe(descricao, tipo_fase_id) VALUES (?, ?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -22,6 +22,7 @@ public class ClasseDao {
 
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, classe.getDescricao());
+            pstm.setInt(2, classe.getTipo_fase_id());
 
             // Executa a query
             pstm.execute();
@@ -42,7 +43,7 @@ public class ClasseDao {
 
     }
 
-    public List<Classe> readClasse(){
+    public List<Classe> ReadClasse(){
 
         String sql = "SELECT * FROM classe";
 

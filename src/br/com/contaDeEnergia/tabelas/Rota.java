@@ -7,40 +7,40 @@ import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TabelaContrato {
+public class Rota {
     public static void main(String[] args) {
 
         Connection conn = null;
         Statement pstm = null;
 
-        try{
+        try {
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.createStatement();
 
-            String sql = "CREATE TABLE contrato"+
-                    "(id INTEGER PRIMARY KEY AUTO_INCREMENT,"+
-                    "descricao VARCHAR(45),"+
-                    "data_inicio TIMESTAMP,"+
-                    "data_criacao TIMESTAMP)";
+            String sql = "CREATE TABLE rota" +
+                    " (id INT NOT NULL AUTO_INCREMENT," +
+                    " descricao VARCHAR(45) NULL,"+
+                    " PRIMARY KEY (id))";
 
             pstm.executeUpdate(sql);
-        }catch(SQLDataException e){
+        } catch (SQLDataException e) {
             e.printStackTrace();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            try{
-                if(pstm!=null){
+        } finally {
+            try {
+                if (pstm != null) {
                     conn.close();
                 }
-            }catch(SQLException e){
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }try{
-            if(conn!=null){
+        }
+        try {
+            if (conn != null) {
                 conn.close();
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 

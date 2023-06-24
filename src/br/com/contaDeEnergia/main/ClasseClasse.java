@@ -11,12 +11,14 @@ public class ClasseClasse {
 
         Classe classe = new Classe();
         classe.setDescricao("a");
+        classe.setTipo_fase_id(1);
 
-        classeDao.create(classe);
+        classeDao.Create(classe);
 
         // Read
-        for(Classe c : classeDao.readClasse()){
-            System.out.println("Classe: "+c.getDescricao());
+        for(Classe c : classeDao.ReadClasse()){
+
+            System.out.println("Classe "+c.getId() +": "+c.getDescricao());
         }
 
 

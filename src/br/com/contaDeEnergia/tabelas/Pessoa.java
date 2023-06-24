@@ -4,7 +4,7 @@ import br.com.contaDeEnergia.factory.ConnectionFactory;
 
 import java.sql.*;
 
-public class TabelaPessoa {
+public class Pessoa {
 
     public static void main(String[] args) {
 
@@ -16,12 +16,15 @@ public class TabelaPessoa {
             pstm = conn.createStatement();
 
             String sql = " CREATE TABLE pessoa " +
-                        " (id INTEGER PRIMARY KEY AUTO_INCREMENT, " +
+                        " (id INT NOT NULL AUTO_INCREMENT, " +
                         " nome VARCHAR(45) NOT NULL, " +
                         " cpf VARCHAR(45) UNIQUE NULL, " +
                         " cnpj VARCHAR(45) UNIQUE NULL, " +
-                        " tipo_pessoa_id INT "+ //NOT NULL
-                        " REFERENCES tipo_pessoa(id)) ";
+                        " tipo_pessoa_id INT NOT NULL, "+
+
+                        " PRIMARY KEY (id),"+
+                        " FOREIGN KEY (tipo_pessoa_id) "+
+                        " REFERENCES tipopessoa(id)) ";
 
             pstm.executeUpdate(sql);
         }catch(SQLDataException e){

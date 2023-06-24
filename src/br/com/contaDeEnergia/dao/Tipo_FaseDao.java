@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 
 public class Tipo_FaseDao {
     public void create(Tipo_Fase tipo_fase){
-        String sql = "INSERT INTO tipo_fase(descricao) VALUES (?)";
+        String sql = "INSERT INTO tipofase(descricao) VALUES (?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;

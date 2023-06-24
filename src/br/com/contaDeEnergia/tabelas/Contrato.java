@@ -7,22 +7,33 @@ import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TabelaTarifa {
+public class Contrato {
     public static void main(String[] args) {
 
         Connection conn = null;
         Statement pstm = null;
+
         try{
             conn = ConnectionFactory.createConnectionToMySQL();
             pstm = conn.createStatement();
 
-            String sql = "CREATE TABLE tarifa"+
-                    "(id SERIAL NOT NULL,"+
-                    "taxa VARCHAR(45) NOT NULL,"+
-                    "lei VARCHAR(45) NOT NULL,"+
-                    "data_inicio VARCHAR(45) NOT NULL,"+
-                    "data_fim VARCHAR(45) NOT NULL,"+
-                    "aliquota_ICMS VARCHAR(45))";
+            String sql = "CREATE TABLE contrato"+
+                    " (id INT NOT NULL AUTO_INCREMENT, "+
+                    " descricao VARCHAR(45), "+
+                    " data_inicio TIMESTAMP, "+
+                    " data_criacao TIMESTAMP, "+
+                    " medidor_id INT NOT NULL, "+
+                    " classe_id INT NOT NULL, "+
+                    " cliente_id INT NOT NULL, "+
+
+                    " PRIMARY KEY (id), "+
+                    " FOREIGN KEY (medidor_id)"+
+                    " REFERENCES medidor(id),"+
+                    " FOREIGN KEY (classe_id)"+
+                    " REFERENCES classe(id),"+
+                    " FOREIGN KEY (cliente_id)"+
+                    " REFERENCES cliente(id))";
+
 
             pstm.executeUpdate(sql);
         }catch(SQLDataException e){
@@ -44,5 +55,6 @@ public class TabelaTarifa {
         }catch(SQLException e){
             e.printStackTrace();
         }
+
     }
 }
