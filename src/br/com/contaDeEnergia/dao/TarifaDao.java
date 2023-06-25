@@ -47,6 +47,38 @@ public class TarifaDao {
         }
     }
 
+    public void Delete(int id){
+        String sql = " DELETE FROM tarifa WHERE id = ?";
+
+        Connection conn = null;
+
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            pstm.setInt(1, id);
+
+            pstm.execute();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if (pstm != null){
+                    pstm.close();
+                }
+                if (conn != null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void Update(Tarifa tarifa){
 
         String sql = "UPDATE tarifa SET taxa = ?, lei = ?, data_inicio = ?, data_fim = ?, aliquota_ICMS = ? "+

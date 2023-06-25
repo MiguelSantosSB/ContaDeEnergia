@@ -12,7 +12,7 @@ public class ClassePessoa {
         pessoa.setNome("Pedro");
         pessoa.setCpf("57679294080");
         pessoa.setCnpj("29296788000106");
-        pessoa.setTipo_pessoa_id(2);
+        pessoa.setTipo_pessoa_id(1);
 
         pessoaDao.Create(pessoa);
 

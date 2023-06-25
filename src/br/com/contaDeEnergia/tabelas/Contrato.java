@@ -22,9 +22,9 @@ public class Contrato {
                     " descricao VARCHAR(45), "+
                     " data_inicio TIMESTAMP, "+
                     " data_criacao TIMESTAMP, "+
-                    " medidor_id INT NOT NULL, "+
-                    " classe_id INT NOT NULL, "+
-                    " cliente_id INT NOT NULL, "+
+                    " medidor_id INT NULL, "+
+                    " classe_id INT NULL, "+
+                    " cliente_id INT NULL, "+
 
                     " PRIMARY KEY (id), "+
                     " FOREIGN KEY (medidor_id)"+

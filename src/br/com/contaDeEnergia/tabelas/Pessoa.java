@@ -20,7 +20,7 @@ public class Pessoa {
                         " nome VARCHAR(45) NOT NULL, " +
                         " cpf VARCHAR(45) UNIQUE NULL, " +
                         " cnpj VARCHAR(45) UNIQUE NULL, " +
-                        " tipo_pessoa_id INT NOT NULL, "+
+                        " tipo_pessoa_id INT NULL, "+
 
                         " PRIMARY KEY (id),"+
                         " FOREIGN KEY (tipo_pessoa_id) "+

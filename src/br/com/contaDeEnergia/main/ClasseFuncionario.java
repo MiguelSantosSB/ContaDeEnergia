@@ -10,14 +10,14 @@ public class ClasseFuncionario {
 
         Funcionario funcionario = new Funcionario();
         funcionario.setCodigo_funcional("40028922");
-        funcionario.setPessoa_id(1);
+        funcionario.setPessoa_id(2);
 
         //funcionarioDao.Create(funcionario);
 
         // Update
         Funcionario funcionario1 = new Funcionario();
-        funcionario1.setCodigo_funcional("");
-        funcionario1.setId(1);
+        funcionario1.setCodigo_funcional("4002345634");
+        funcionario1.setId(2);
 
         funcionarioDao.Update(funcionario1);
 

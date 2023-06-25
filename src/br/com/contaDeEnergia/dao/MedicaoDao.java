@@ -48,6 +48,38 @@ public class MedicaoDao {
         }
     }
 
+    public void Delete(int id){
+        String sql = " DELETE FROM medicao WHERE id = ?";
+
+        Connection conn = null;
+
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            pstm.setInt(1, id);
+
+            pstm.execute();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if (pstm != null){
+                    pstm.close();
+                }
+                if (conn != null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void Update(Medicao medicao){
 
         String sql = "UPDATE medicao SET mes = ?, ano = ?, data_medicao = ?, consumo = ? "+
@@ -115,7 +147,6 @@ public class MedicaoDao {
                 medicao.setConsumo(rset.getString("consumo"));
                 medicao.setMedidor_id(rset.getInt("medidor_id"));
                 medicao.setTime_rota_id(rset.getInt("time_rota_id"));
-                //medicao.set
 
                 medicoes.add(medicao);
             }

@@ -20,8 +20,8 @@ public class Medidor {
             String sql = "CREATE TABLE medidor"+
                     " (id INT NOT NULL AUTO_INCREMENT,"+
                     " descricao VARCHAR(45) NOT NULL,"+
-                    " rota_id INT NOT NULL, "+
-                    " poste_id INT NOT NULL ,"+
+                    " rota_id INT NULL, "+
+                    " poste_id INT NULL ,"+
 
                     " PRIMARY KEY (id),"+
                     " FOREIGN KEY (rota_id)"+

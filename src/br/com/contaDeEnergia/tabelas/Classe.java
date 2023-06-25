@@ -20,7 +20,7 @@ public class Classe {
             String sql = "CREATE TABLE classe"+
                     " (id INT NOT NULL AUTO_INCREMENT, "+
                     " descricao VARCHAR(45) NOT NULL, "+
-                    " tipo_fase_id INT NULL ,"+
+                    " tipo_fase_id INT ,"+
 
                     " PRIMARY KEY (id),"+
                     " FOREIGN KEY (tipo_fase_id)"+

@@ -22,8 +22,8 @@ public class Medicao {
                     " ano VARCHAR(45) NOT NULL,"+
                     " data_medicao TIMESTAMP NOT NULL,"+
                     " consumo VARCHAR(45) NOT NULL,"+
-                    " medidor_id INT NOT NULL,"+
-                    " time_rota_id INT NOT NULL,"+
+                    " medidor_id INT NULL,"+
+                    " time_rota_id INT NULL,"+
 
                     " PRIMARY KEY (id), "+
                     " FOREIGN KEY (medidor_id)"+

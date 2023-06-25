@@ -12,14 +12,14 @@ public class ClasseTipoPessoa {
         //funcionario ou cliente
         tipoPessoa.setDescricao("cliente");
 
-        //tipoPessoaDao.Create(tipoPessoa);
+        tipoPessoaDao.Create(tipoPessoa);
 
         // Update
         TipoPessoa tipoPessoa1 = new TipoPessoa();
         tipoPessoa1.setDescricao("");
         tipoPessoa1.setId(1);
 
-        tipoPessoaDao.Update(tipoPessoa1);
+        //tipoPessoaDao.Update(tipoPessoa1);
 
         // Read
         for(TipoPessoa c : tipoPessoaDao.ReadTipoPessoa()){

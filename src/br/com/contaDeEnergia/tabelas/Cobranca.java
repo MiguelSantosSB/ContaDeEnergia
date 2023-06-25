@@ -21,7 +21,7 @@ public class Cobranca {
                     " (id INT NOT NULL AUTO_INCREMENT, "+
                     " mes_referencia VARCHAR(45) NOT NULL, "+
                     " ano_referencia VARCHAR(45) NOT NULL, "+
-                    " tarifa_id INT NOT NULL , "+
+                    " tarifa_id INT , "+
 
                     " PRIMARY KEY (id), "+
                     " FOREIGN KEY (tarifa_id) "+

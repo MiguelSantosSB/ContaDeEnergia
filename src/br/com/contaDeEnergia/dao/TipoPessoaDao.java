@@ -43,9 +43,41 @@ public class TipoPessoaDao {
         }
     }
 
+    public void Delete(int id){
+        String sql = " DELETE FROM tipopessoa WHERE id = ?";
+
+        Connection conn = null;
+
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            pstm.setInt(1, id);
+
+            pstm.execute();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if (pstm != null){
+                    pstm.close();
+                }
+                if (conn != null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void Update(TipoPessoa tipoPessoa){
 
-        String sql = "UPDATE tipopessoa SET tipopessoa = ? "+
+        String sql = "UPDATE tipopessoa SET descricao = ? "+
                 "WHERE id = ?";
 
         Connection conn = null;

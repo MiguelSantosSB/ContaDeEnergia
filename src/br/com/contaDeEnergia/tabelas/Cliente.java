@@ -21,7 +21,7 @@ public class Cliente {
                     " (id INT NOT NULL AUTO_INCREMENT, "+
                     " num_documento VARCHAR(45) NOT NULL, "+
                     " num_cliente VARCHAR(45) NOT NULL, "+
-                    " pessoa_id INT NOT NULL,"+
+                    " pessoa_id INT,"+
 
                     " PRIMARY KEY (id),"+
                     " FOREIGN KEY (pessoa_id)"+

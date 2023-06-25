@@ -22,7 +22,7 @@ public class TarefaRota {
                     " observacao VARCHAR(45) NULL,"+
                     " data_inicio TIMESTAMP NULL,"+
                     " data_fim TIMESTAMP NULL,"+
-                    " rota_id INT NOT NULL,"+
+                    " rota_id INT NULL,"+
 
                     " PRIMARY KEY (id),"+
                     " FOREIGN KEY (rota_id)"+

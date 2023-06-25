@@ -19,7 +19,7 @@ public class Funcionario {
             String sql = "CREATE TABLE funcionario"+
                         " (id INT NOT NULL AUTO_INCREMENT, "+
                         " codigo_funcional VARCHAR(45), "+
-                        " pessoa_id INT NOT NULL, "+
+                        " pessoa_id INT , "+
 
                         " PRIMARY KEY (id), "+
                         " FOREIGN KEY (pessoa_id)"+

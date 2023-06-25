@@ -19,8 +19,8 @@ public class TimeRota {
 
             String sql = "CREATE TABLE timerota" +
                     " (id INT NOT NULL AUTO_INCREMENT, " +
-                    " funcionario_id INT NOT NULL,"+
-                    " tarefa_rota_id INT NOT NULL,"+
+                    " funcionario_id INT NULL,"+
+                    " tarefa_rota_id INT NULL,"+
 
                     " PRIMARY KEY (id),"+
                     " FOREIGN KEY (tarefa_rota_id)"+

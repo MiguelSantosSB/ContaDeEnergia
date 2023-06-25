@@ -11,14 +11,17 @@ public class ClasseTipoFase {
         TipoFase tipoFase = new TipoFase();
         tipoFase.setDescricao("nao sei");
 
-        //tipoFaseDao.Create(tipoFase);
+        tipoFaseDao.Create(tipoFase);
+
+        //Delete
+        //tipoFaseDao.Delete(1);
 
         // Update
         TipoFase tipoFase1 = new TipoFase();
-        tipoFase1.setDescricao("");
+        tipoFase1.setDescricao("agora eu sei");
         tipoFase1.setId(1);
 
-        tipoFaseDao.Update(tipoFase1);
+        //tipoFaseDao.Update(tipoFase1);
 
         // Read
         for (TipoFase c : tipoFaseDao.ReadTipoFase()) {

@@ -1,5 +1,6 @@
 package br.com.contaDeEnergia.main;
 
+import br.com.contaDeEnergia.Model.TipoFase;
 import br.com.contaDeEnergia.Model.Classe;
 import br.com.contaDeEnergia.dao.ClasseDao;
 
@@ -10,13 +11,13 @@ public class ClasseClasse {
         ClasseDao classeDao = new ClasseDao();
 
         Classe classe = new Classe();
-        classe.setDescricao("a");
+        classe.setDescricao("completa");
         classe.setTipo_fase_id(1);
 
         //classeDao.Create(classe);
 
         // Delete
-        classeDao.Delete(1);
+        //classeDao.Delete(1);
 
         // Update
         Classe classe1 = new Classe();
@@ -30,7 +31,5 @@ public class ClasseClasse {
 
             System.out.println("Classe "+c.getId() +": "+c.getDescricao());
         }
-
-
     }
 }
