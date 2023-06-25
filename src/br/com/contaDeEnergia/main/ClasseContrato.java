@@ -1,13 +1,12 @@
 package br.com.contaDeEnergia.main;
 
-
 import br.com.contaDeEnergia.Model.Contrato;
 import br.com.contaDeEnergia.dao.ContratoDao;
 
 import java.util.Date;
 
 public class ClasseContrato {
-    private static int num = 1;
+    private static int num = 2;
     public static void main(String[] args) {
 
         ContratoDao contratoDao = new ContratoDao();
@@ -20,7 +19,17 @@ public class ClasseContrato {
         contrato.setClasse_id(num);
         contrato.setCliente_id(num);
 
-        //contratoDao.Create(contrato);
+        contratoDao.Create(contrato);
+
+        // Update
+        Contrato contrato1 = new Contrato();
+        contrato1.setDescricao("");
+        //contrato1.setData_inicio();
+        //contrato1.setData_criacao('2023-06-25');
+        contrato1.setId(1);
+
+        //contratoDao.Update(contrato1);
+
 
         //Read
         for(Contrato c : contratoDao.ReadContrato()){

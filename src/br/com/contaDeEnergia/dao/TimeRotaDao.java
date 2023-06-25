@@ -42,6 +42,43 @@ public class TimeRotaDao {
         }
 
     }
+
+    public void Update(TimeRota timeRota){
+
+        String sql = "UPDATE timerota SET  "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            //
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(1, timeRota.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<TimeRota> ReadTimeRota(){
 
         String sql = "SELECT * FROM timerota";

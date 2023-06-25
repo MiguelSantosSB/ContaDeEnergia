@@ -79,6 +79,38 @@ public class ClasseDao {
         }
     }
 
+    public void Delete(int id){
+        String sql = " DELETE FROM classe WHERE id = ?";
+
+        Connection conn = null;
+
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            pstm.setInt(1, id);
+
+            pstm.execute();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if (pstm != null){
+                    pstm.close();
+                }
+                if (conn != null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Classe> ReadClasse(){
 
         String sql = "SELECT * FROM classe";

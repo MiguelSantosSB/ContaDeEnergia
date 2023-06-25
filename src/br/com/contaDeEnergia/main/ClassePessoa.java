@@ -9,12 +9,22 @@ public class ClassePessoa {
         PessoaDao pessoaDao = new PessoaDao();
 
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("Miguel");
-        pessoa.setCpf("57679294089");
-        pessoa.setCnpj("29296788000107");
-        pessoa.setTipo_pessoa_id(1);
+        pessoa.setNome("Pedro");
+        pessoa.setCpf("57679294080");
+        pessoa.setCnpj("29296788000106");
+        pessoa.setTipo_pessoa_id(2);
 
-        //pessoaDao.Create(pessoa);
+        pessoaDao.Create(pessoa);
+
+        // Update
+        Pessoa pessoa1 = new Pessoa();
+        pessoa1.setNome("");
+        pessoa1.setCpf("");
+        pessoa1.setCnpj("");
+        pessoa1.setId(1);
+
+        //pessoaDao.Update(pessoa1);
+
         // Read
         for(Pessoa c : pessoaDao.ReadPessoa()){
 

@@ -44,6 +44,43 @@ public class MedidorDao {
             }
         }
     }
+
+    public void Update(Medidor medidor){
+
+        String sql = "UPDATE medidor SET descricao = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, medidor.getDescricao());
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(2, medidor.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Medidor> ReadMedidor(){
 
         String sql = "SELECT * FROM medidor";

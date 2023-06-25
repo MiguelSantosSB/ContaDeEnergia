@@ -15,6 +15,9 @@ public class ClasseClasse {
 
         //classeDao.Create(classe);
 
+        // Delete
+        classeDao.Delete(1);
+
         // Update
         Classe classe1 = new Classe();
         classe1.setDescricao("b");

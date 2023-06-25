@@ -41,6 +41,43 @@ public class TipoFaseDao {
         }
 
     }
+
+    public void Update(TipoFase tipoFase){
+
+        String sql = "UPDATE tipofase SET descricao = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, tipoFase.getDescricao());
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(2, tipoFase.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<TipoFase> ReadTipoFase(){
 
         String sql = "SELECT * FROM tipofase";

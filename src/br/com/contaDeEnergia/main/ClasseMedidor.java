@@ -15,6 +15,14 @@ public class ClasseMedidor {
         medidor.setPoste_id(num);
 
         //medidorDao.Create(medidor);
+
+        // Update
+        Medidor medidor1 = new Medidor();
+        medidor1.setDescricao("");
+        medidor1.setId(1);
+
+        medidorDao.Update(medidor1);
+
         // Read
         for(Medidor c : medidorDao.ReadMedidor()){
 

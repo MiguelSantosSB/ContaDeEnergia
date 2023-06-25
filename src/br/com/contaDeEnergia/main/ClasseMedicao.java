@@ -14,12 +14,22 @@ public class ClasseMedicao {
         Medicao medicao = new Medicao();
         medicao.setMes("julho");
         medicao.setAno("2023");
-        medicao.setData_medicao(new Date());
+        medicao.setData_medicao(new Date(2002,9,10));
         medicao.setConsumo("2500W");
         medicao.setMedidor_id(num);
         medicao.setTime_rota_id(num);
 
-        //medicaoDao.Create(medicao);
+        medicaoDao.Create(medicao);
+
+        // Update
+        Medicao medicao1 = new Medicao();
+        medicao1.setMes("");
+        medicao1.setAno("");
+        //medicao1.setData_medicao();
+        medicao1.setConsumo("");
+        medicao1.setId(1);
+
+        //medicaoDao.Update(medicao1);
 
         // Read
         for(Medicao c : medicaoDao.ReadMedicao()){

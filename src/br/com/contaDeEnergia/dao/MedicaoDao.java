@@ -47,6 +47,46 @@ public class MedicaoDao {
             }
         }
     }
+
+    public void Update(Medicao medicao){
+
+        String sql = "UPDATE medicao SET mes = ?, ano = ?, data_medicao = ?, consumo = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, medicao.getMes());
+            pstm.setString(2, medicao.getAno());
+            pstm.setDate(3, new Date(medicao.getData_medicao().getTime()));
+            pstm.setString(4, medicao.getConsumo());
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(5, medicao.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Medicao> ReadMedicao(){
 
         String sql = "SELECT * FROM medicao";

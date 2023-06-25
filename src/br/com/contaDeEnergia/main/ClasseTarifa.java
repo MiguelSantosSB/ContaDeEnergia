@@ -16,7 +16,19 @@ public class ClasseTarifa {
         tarifa.setAliquota_ICMS("");
         tarifa.setClasse_id(1);
 
-        //tarifaDao.Create(tarifa);
+        tarifaDao.Create(tarifa);
+
+        // Update
+        Tarifa tarifa1 = new Tarifa();
+        tarifa1.setTaxa("");
+        tarifa1.setLei("");
+        tarifa1.setData_inicio("");
+        tarifa1.setData_fim("");
+        tarifa1.setAliquota_ICMS("");
+        tarifa1.setId(1);
+
+        //tarifaDao.Update(tarifa1);
+
         // Read
         for(Tarifa c : tarifaDao.ReadTarifa()){
 

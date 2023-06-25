@@ -1,6 +1,5 @@
 package br.com.contaDeEnergia.dao;
 
-
 import br.com.contaDeEnergia.Model.Pessoa;
 import br.com.contaDeEnergia.factory.ConnectionFactory;
 import java.sql.Connection;
@@ -44,6 +43,45 @@ public class PessoaDao {
             }
         }
     }
+
+    public void Update(Pessoa pessoa){
+
+        String sql = "UPDATE pessoa SET nome = ?, cpf = ?, cnpj = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, pessoa.getNome());
+            pstm.setString(2, pessoa.getCpf());
+            pstm.setString(3, pessoa.getCnpj());
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(4, pessoa.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Pessoa> ReadPessoa(){
 
         String sql = "SELECT * FROM pessoa";

@@ -14,6 +14,12 @@ public class ClasseTimeRota {
         timeRota.setTarefa_rota_id(num);
 
         //timeRotaDao.Create(timeRota);
+
+        // Update
+        TimeRota timeRota1 = new TimeRota();
+        // nao foi colocado nada pois a tabela time rota
+        // e composta apenas de ids estrangeiros.
+
         // Read
         for(TimeRota c : timeRotaDao.ReadTimeRota()){
 

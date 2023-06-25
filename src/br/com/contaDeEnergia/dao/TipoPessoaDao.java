@@ -42,6 +42,43 @@ public class TipoPessoaDao {
             }
         }
     }
+
+    public void Update(TipoPessoa tipoPessoa){
+
+        String sql = "UPDATE tipopessoa SET tipopessoa = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, tipoPessoa.getDescricao());
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(2, tipoPessoa.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<TipoPessoa> ReadTipoPessoa(){
 
         String sql = "SELECT * FROM tipopessoa";

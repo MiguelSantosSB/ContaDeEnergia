@@ -46,6 +46,47 @@ public class TarifaDao {
             }
         }
     }
+
+    public void Update(Tarifa tarifa){
+
+        String sql = "UPDATE tarifa SET taxa = ?, lei = ?, data_inicio = ?, data_fim = ?, aliquota_ICMS = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, tarifa.getTaxa());
+            pstm.setString(2, tarifa.getLei());
+            pstm.setString(3, tarifa.getData_inicio());
+            pstm.setString(4, tarifa.getData_fim());
+            pstm.setString(5, tarifa.getAliquota_ICMS());
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(6, tarifa.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Tarifa> ReadTarifa(){
 
         String sql = "SELECT * FROM tarifa";

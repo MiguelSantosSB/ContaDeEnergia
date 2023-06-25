@@ -15,6 +15,17 @@ public class ClassePoste {
         poste.setObservacao("poste ok viu, nao caiu");
 
         //posteDao.Create(poste);
+
+        // Update
+        Poste poste1 = new Poste();
+        poste1.setLatitude("");
+        poste1.setLongitude("");
+        poste1.setCodigo("");
+        poste1.setObservacao("");
+        poste1.setId(1);
+
+        posteDao.Update(poste1);
+
         // Read
         for(Poste c : posteDao.ReadPoste()){
 

@@ -45,6 +45,45 @@ public class TarefaRotaDao {
             }
         }
     }
+
+    public void Update(TarefaRota tarefaRota){
+
+        String sql = "UPDATE tarefarota SET observacao = ?, data_inicio = ?, data_fim = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, tarefaRota.getObservacao());
+            pstm.setDate(2, new Date(tarefaRota.getData_inicio().getTime()));
+            pstm.setDate(3, new Date(tarefaRota.getData_fim().getTime()));
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(4, tarefaRota.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<TarefaRota> ReadTarefa(){
 
         String sql = "SELECT * FROM tarefarota";

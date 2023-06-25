@@ -43,6 +43,43 @@ public class FuncionarioDao {
             }
         }
     }
+
+    public void Update(Funcionario funcionario){
+
+        String sql = "UPDATE funcionario SET codigo_funcional = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1,funcionario.getCodigo_funcional());
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(2, funcionario.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Funcionario> ReadFuncionario(){
 
         String sql = "SELECT * FROM funcionario";

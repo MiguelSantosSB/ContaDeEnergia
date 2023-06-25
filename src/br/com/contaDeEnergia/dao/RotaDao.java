@@ -1,6 +1,5 @@
 package br.com.contaDeEnergia.dao;
 
-import br.com.contaDeEnergia.Model.Poste;
 import br.com.contaDeEnergia.Model.Rota;
 import br.com.contaDeEnergia.factory.ConnectionFactory;
 
@@ -42,6 +41,43 @@ public class RotaDao {
             }
         }
     }
+
+    public void Update(Rota rota){
+
+        String sql = "UPDATE rota SET descricao = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, rota.getDescricao());
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(2, rota.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Rota> ReadRota(){
 
         String sql = "SELECT * FROM rota";

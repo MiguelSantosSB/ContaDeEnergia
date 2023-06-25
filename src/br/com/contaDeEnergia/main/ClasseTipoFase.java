@@ -3,15 +3,23 @@ package br.com.contaDeEnergia.main;
 import br.com.contaDeEnergia.Model.TipoFase;
 import br.com.contaDeEnergia.dao.TipoFaseDao;
 
-public class ClasseTipo_fase {
+public class ClasseTipoFase {
     public static void main(String[] args) {
 
         TipoFaseDao tipoFaseDao = new TipoFaseDao();
 
-        TipoFase tipo_fase = new TipoFase();
-        tipo_fase.setDescricao("nao sei");
+        TipoFase tipoFase = new TipoFase();
+        tipoFase.setDescricao("nao sei");
 
-        //tipoFaseDao.Create(tipo_fase);
+        //tipoFaseDao.Create(tipoFase);
+
+        // Update
+        TipoFase tipoFase1 = new TipoFase();
+        tipoFase1.setDescricao("");
+        tipoFase1.setId(1);
+
+        tipoFaseDao.Update(tipoFase1);
+
         // Read
         for (TipoFase c : tipoFaseDao.ReadTipoFase()) {
 

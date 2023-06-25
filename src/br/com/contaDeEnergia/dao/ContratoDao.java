@@ -45,6 +45,44 @@ public class ContratoDao {
         }
     }
 
+    public void Update(Contrato contrato){
+
+        String sql = "UPDATE contrato SET descricao = ?, data_inicio = ?, data_criacao = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, contrato.getDescricao());
+            // Qual id do registro que vai ser atualizado
+            pstm.setDate(2, new Date(contrato.getData_inicio().getTime()));
+            pstm.setDate(3, new Date(contrato.getData_criacao().getTime()));
+            pstm.setInt(4, contrato.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Contrato> ReadContrato(){
 
         String sql = "SELECT * FROM contrato";

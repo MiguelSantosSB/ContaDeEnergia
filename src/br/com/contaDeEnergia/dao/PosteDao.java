@@ -44,6 +44,46 @@ public class PosteDao {
             }
         }
     }
+
+    public void Update(Poste poste){
+
+        String sql = "UPDATE poste SET latitude = ?, longitude = ?, codigo = ?, observacao = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, poste.getLatitude());
+            pstm.setString(2, poste.getLongitude());
+            pstm.setString(3, poste.getCodigo());
+            pstm.setString(4, poste.getObservacao());
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(5, poste.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Poste> ReadPoste(){
 
         String sql = "SELECT * FROM poste";

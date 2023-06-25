@@ -23,7 +23,7 @@ public class Tarifa {
                     " data_inicio VARCHAR(45) NOT NULL, "+
                     " data_fim VARCHAR(45) NOT NULL, "+
                     " aliquota_ICMS VARCHAR(45), "+
-                    " classe_id INT NULL UNIQUE,"+
+                    " classe_id INT NULL ,"+
 
                     " PRIMARY KEY (id), "+
                     " FOREIGN KEY (classe_id)"+

@@ -15,6 +15,15 @@ public class ClasseCobranca {
 
         //cobrancaDao.Create(cobranca);
 
+        // Update
+        Cobranca cobranca1 = new Cobranca();
+        cobranca1.setMes_referencia("julho");
+        cobranca1.setAno_referencia("2023");
+        cobranca1.setId(1);
+
+        cobrancaDao.Update(cobranca1);
+
+
         // Read
         for(Cobranca c : cobrancaDao.ReadCobranca()){
             System.out.println("Cobanca:"+c.getId());

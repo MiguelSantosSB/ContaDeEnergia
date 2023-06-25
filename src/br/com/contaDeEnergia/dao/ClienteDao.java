@@ -44,6 +44,74 @@ public class ClienteDao {
 
     }
 
+    public void Delete(int id){
+        String sql = " DELETE FROM cliente WHERE id = ?";
+
+        Connection conn = null;
+
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            pstm.setInt(1, id);
+
+            pstm.execute();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if (pstm != null){
+                    pstm.close();
+                }
+                if (conn != null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void Update(Cliente cliente){
+
+        String sql = "UPDATE cliente SET num_documento = ?, num_cliente = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, cliente.getNum_documento());
+            // Qual id do registro que vai ser atualizado
+            pstm.setString(2, cliente.getNum_cliente());
+            pstm.setInt(3, cliente.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
 
     public List<Cliente> ReadCliente(){
 

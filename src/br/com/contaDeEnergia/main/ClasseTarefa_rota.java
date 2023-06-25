@@ -16,7 +16,17 @@ public class ClasseTarefa_rota {
         tarefaRota.setData_fim(new Date());
         tarefaRota.setRota_id(1);
 
-        tarefaRotaDao.Create(tarefaRota);
+        //tarefaRotaDao.Create(tarefaRota);
+
+        // Update
+        TarefaRota tarefaRota1 = new TarefaRota();
+        tarefaRota1.setObservacao("");
+        //tarefaRota1.setData_inicio();
+       // tarefaRota1.setData_fim();
+        tarefaRota1.setId(1);
+
+        tarefaRotaDao.Update(tarefaRota1);
+
         // Read
         for(TarefaRota c : tarefaRotaDao.ReadTarefa()){
 

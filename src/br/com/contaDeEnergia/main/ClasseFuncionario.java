@@ -14,6 +14,13 @@ public class ClasseFuncionario {
 
         //funcionarioDao.Create(funcionario);
 
+        // Update
+        Funcionario funcionario1 = new Funcionario();
+        funcionario1.setCodigo_funcional("");
+        funcionario1.setId(1);
+
+        funcionarioDao.Update(funcionario1);
+
         // Read
         for(Funcionario c : funcionarioDao.ReadFuncionario()){
 
