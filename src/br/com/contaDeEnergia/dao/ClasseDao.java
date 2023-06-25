@@ -43,6 +43,42 @@ public class ClasseDao {
 
     }
 
+    public void Update(Classe classe){
+
+        String sql = "UPDATE classe SET descricao = ? "+
+                "WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            // Adicionar os valores para atualizar
+            pstm.setString(1, classe.getDescricao());
+            // Qual id do registro que vai ser atualizado
+            pstm.setInt(2, classe.getId());
+
+            pstm.execute();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try
+            {
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if(conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+
     public List<Classe> ReadClasse(){
 
         String sql = "SELECT * FROM classe";
@@ -66,6 +102,7 @@ public class ClasseDao {
                //Pegar o id
                classe.setId(rset.getInt("id"));
                classe.setDescricao(rset.getString("descricao"));
+               classe.setTipo_fase_id(rset.getInt("tipo_fase_id"));
 
                classes.add(classe);
             }

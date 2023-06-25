@@ -10,7 +10,15 @@ public class ClasseFuncionario {
 
         Funcionario funcionario = new Funcionario();
         funcionario.setCodigo_funcional("40028922");
+        funcionario.setPessoa_id(1);
 
-        funcionarioDao.create(funcionario);
+        //funcionarioDao.Create(funcionario);
+
+        // Read
+        for(Funcionario c : funcionarioDao.ReadFuncionario()){
+
+            System.out.println("Id do funcionario: "+c.getId() +" Codigo funcional: "+c.getCodigo_funcional());
+            System.out.println("Id pessoa: "+c.getPessoa_id());
+        }
     }
 }

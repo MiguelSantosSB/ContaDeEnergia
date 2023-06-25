@@ -13,7 +13,14 @@ public class ClasseClasse {
         classe.setDescricao("a");
         classe.setTipo_fase_id(1);
 
-        classeDao.Create(classe);
+        //classeDao.Create(classe);
+
+        // Update
+        Classe classe1 = new Classe();
+        classe1.setDescricao("b");
+        classe1.setId(2);
+
+        //classeDao.Update(classe1);
 
         // Read
         for(Classe c : classeDao.ReadClasse()){

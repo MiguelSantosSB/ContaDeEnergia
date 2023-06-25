@@ -5,9 +5,12 @@ import br.com.contaDeEnergia.factory.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TarifaDao {
-    public void create(Tarifa tarifa){
+    public void Create(Tarifa tarifa){
         String sql = "INSERT INTO tarifa(id ,taxa, lei, data_inicio, data_fim, aliquota_ICMS, classe_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         Connection conn = null;
@@ -42,5 +45,55 @@ public class TarifaDao {
                 e.printStackTrace();
             }
         }
+    }
+    public List<Tarifa> ReadTarifa(){
+
+        String sql = "SELECT * FROM tarifa";
+
+        List<Tarifa> tarifas = new ArrayList<Tarifa>();
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        // recuper os dados do banco
+        ResultSet rset = null;
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+
+            pstm = conn.prepareStatement(sql);
+
+            rset = pstm.executeQuery();
+
+            while(rset.next()){
+                Tarifa tarifa = new Tarifa();
+                //Pegar o id
+                tarifa.setId(rset.getInt("id"));
+                tarifa.setTaxa(rset.getString("taxa"));
+                tarifa.setClasse_id(rset.getInt("classe_id"));
+                tarifa.setLei(rset.getString("lei"));
+                tarifa.setData_inicio(rset.getString("data_inicio"));
+                tarifa.setData_fim(rset.getString("data_fim"));
+                tarifa.setAliquota_ICMS(rset.getString("aliquota_ICMS"));
+
+                tarifas.add(tarifa);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(rset!=null){
+                    rset.close();
+                }
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if (conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return tarifas;
     }
 }

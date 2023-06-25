@@ -1,6 +1,6 @@
 package br.com.contaDeEnergia.Model;
 
-public class Tipo_Pessoa {
+public class TipoPessoa {
 
     private int id;
     private String descricao;

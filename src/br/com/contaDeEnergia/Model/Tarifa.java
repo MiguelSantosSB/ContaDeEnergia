@@ -10,7 +10,6 @@ public class Tarifa {
     private String aliquota_ICMS;
     private int classe_id;
 
-
     public int getId() {
         return id;
     }

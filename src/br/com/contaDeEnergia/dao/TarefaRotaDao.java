@@ -1,6 +1,6 @@
 package br.com.contaDeEnergia.dao;
 
-import br.com.contaDeEnergia.Model.Medidor;
+import br.com.contaDeEnergia.Model.TarefaRota;
 import br.com.contaDeEnergia.factory.ConnectionFactory;
 
 import java.sql.Connection;
@@ -10,10 +10,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedidorDao {
-    public void Create(Medidor medidor){
+public class TarefaRotaDao {
+    public void Create(TarefaRota tarefarota){
 
-        String sql = "INSERT INTO medidor(descricao, rota_id, poste_id) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO tarefarota(observacao, data_inicio, data_fim, rota_id) VALUES (?, ?, ?, ?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -23,9 +23,10 @@ public class MedidorDao {
             conn = ConnectionFactory.createConnectionToMySQL();
 
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, medidor.getDescricao());
-            pstm.setInt(2, medidor.getRota_id());
-            pstm.setInt(3, medidor.getPoste_id());
+            pstm.setString(1, tarefarota.getObservacao());
+            pstm.setDate(2, new Date(tarefarota.getData_inicio().getTime()));
+            pstm.setDate(3, new Date(tarefarota.getData_fim().getTime()));
+            pstm.setInt(4, tarefarota.getRota_id());
 
             // Executa a query
             pstm.execute();
@@ -44,11 +45,11 @@ public class MedidorDao {
             }
         }
     }
-    public List<Medidor> ReadMedidor(){
+    public List<TarefaRota> ReadTarefa(){
 
-        String sql = "SELECT * FROM medidor";
+        String sql = "SELECT * FROM tarefarota";
 
-        List<Medidor> medidores = new ArrayList<Medidor>();
+        List<TarefaRota> tarefaRotas = new ArrayList<TarefaRota>();
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -63,14 +64,15 @@ public class MedidorDao {
             rset = pstm.executeQuery();
 
             while(rset.next()){
-                Medidor medidor = new Medidor();
+                TarefaRota tarefaRota = new TarefaRota();
                 //Pegar o id
-                medidor.setId(rset.getInt("id"));
-                medidor.setDescricao(rset.getString("descricao"));
-                medidor.setPoste_id(rset.getInt("poste_id"));
-                medidor.setRota_id(rset.getInt("rota_id"));
+                tarefaRota.setId(rset.getInt("id"));
+                tarefaRota.setObservacao(rset.getString("observacao"));
+                tarefaRota.setData_inicio(rset.getDate("data_inicio"));
+                tarefaRota.setData_fim(rset.getDate("data_fim"));
+                tarefaRota.setRota_id(rset.getInt("rota_id"));
 
-                medidores.add(medidor);
+                tarefaRotas.add(tarefaRota);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -89,6 +91,6 @@ public class MedidorDao {
                 e.printStackTrace();
             }
         }
-        return medidores;
+        return tarefaRotas;
     }
 }

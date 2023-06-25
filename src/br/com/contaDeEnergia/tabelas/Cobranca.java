@@ -22,7 +22,6 @@ public class Cobranca {
                     " mes_referencia VARCHAR(45) NOT NULL, "+
                     " ano_referencia VARCHAR(45) NOT NULL, "+
                     " tarifa_id INT NOT NULL , "+
-                    " medicao_id INT NOT NULL, "+
 
                     " PRIMARY KEY (id), "+
                     " FOREIGN KEY (tarifa_id) "+

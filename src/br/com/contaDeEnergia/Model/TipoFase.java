@@ -1,10 +1,9 @@
 package br.com.contaDeEnergia.Model;
 
-public class Tipo_Fase {
+public class TipoFase {
 
     private int id;
     private String descricao;
-
 
     public int getId() {
         return id;

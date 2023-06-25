@@ -9,7 +9,6 @@ public class ClasseTarifa {
         TarifaDao tarifaDao = new TarifaDao();
 
         Tarifa tarifa = new Tarifa();
-        tarifa.setId(1);
         tarifa.setTaxa("");
         tarifa.setLei("");
         tarifa.setData_inicio("");
@@ -17,6 +16,13 @@ public class ClasseTarifa {
         tarifa.setAliquota_ICMS("");
         tarifa.setClasse_id(1);
 
-        tarifaDao.create(tarifa);
+        //tarifaDao.Create(tarifa);
+        // Read
+        for(Tarifa c : tarifaDao.ReadTarifa()){
+
+            System.out.println("Id tarifa: "+c.getId() +", Taxa: "+c.getTaxa()+", Lei: "+c.getLei());
+            System.out.println("Data inicio: "+c.getData_inicio()+", Data fim: "+c.getData_fim());
+            System.out.println("Aliquosa: "+c.getAliquota_ICMS()+", Id classe: "+c.getClasse_id());
+        }
     }
 }

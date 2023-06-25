@@ -1,19 +1,17 @@
 package br.com.contaDeEnergia.dao;
 
-import br.com.contaDeEnergia.Model.Medidor;
+import br.com.contaDeEnergia.Model.TipoFase;
 import br.com.contaDeEnergia.factory.ConnectionFactory;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedidorDao {
-    public void Create(Medidor medidor){
-
-        String sql = "INSERT INTO medidor(descricao, rota_id, poste_id) VALUES (?, ?, ?)";
+public class TipoFaseDao {
+    public void Create(TipoFase tipo_fase){
+        String sql = "INSERT INTO tipofase(descricao) VALUES (?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -23,9 +21,7 @@ public class MedidorDao {
             conn = ConnectionFactory.createConnectionToMySQL();
 
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, medidor.getDescricao());
-            pstm.setInt(2, medidor.getRota_id());
-            pstm.setInt(3, medidor.getPoste_id());
+            pstm.setString(1, tipo_fase.getDescricao());
 
             // Executa a query
             pstm.execute();
@@ -43,12 +39,13 @@ public class MedidorDao {
                 e.printStackTrace();
             }
         }
+
     }
-    public List<Medidor> ReadMedidor(){
+    public List<TipoFase> ReadTipoFase(){
 
-        String sql = "SELECT * FROM medidor";
+        String sql = "SELECT * FROM tipofase";
 
-        List<Medidor> medidores = new ArrayList<Medidor>();
+        List<TipoFase> tipoFases = new ArrayList<TipoFase>();
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -63,14 +60,12 @@ public class MedidorDao {
             rset = pstm.executeQuery();
 
             while(rset.next()){
-                Medidor medidor = new Medidor();
+                TipoFase tipoFase = new TipoFase();
                 //Pegar o id
-                medidor.setId(rset.getInt("id"));
-                medidor.setDescricao(rset.getString("descricao"));
-                medidor.setPoste_id(rset.getInt("poste_id"));
-                medidor.setRota_id(rset.getInt("rota_id"));
+                tipoFase.setId(rset.getInt("id"));
+                tipoFase.setDescricao(rset.getString("descricao"));
 
-                medidores.add(medidor);
+                tipoFases.add(tipoFase);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -89,6 +84,6 @@ public class MedidorDao {
                 e.printStackTrace();
             }
         }
-        return medidores;
+        return tipoFases;
     }
 }

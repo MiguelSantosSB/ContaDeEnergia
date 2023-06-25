@@ -1,20 +1,28 @@
 package br.com.contaDeEnergia.main;
 
-import br.com.contaDeEnergia.Model.Tarefa_Rota;
-import br.com.contaDeEnergia.dao.Tarefa_RotaDao;
+import br.com.contaDeEnergia.Model.TarefaRota;
+import br.com.contaDeEnergia.dao.TarefaRotaDao;
 
 import java.util.Date;
 
 public class ClasseTarefa_rota {
     public static void main(String[] args) {
 
-        Tarefa_RotaDao tarefaRotaDao = new Tarefa_RotaDao();
+        TarefaRotaDao tarefaRotaDao = new TarefaRotaDao();
 
-        Tarefa_Rota tarefaRota = new Tarefa_Rota();
+        TarefaRota tarefaRota = new TarefaRota();
         tarefaRota.setObservacao("esqueci");
-        tarefaRota.setData_inicio(new Date(2023-6-27));
-        tarefaRota.setData_fim(new Date(2023-6-27));
+        tarefaRota.setData_inicio(new Date());
+        tarefaRota.setData_fim(new Date());
+        tarefaRota.setRota_id(1);
 
-        tarefaRotaDao.create(tarefaRota);
+        tarefaRotaDao.Create(tarefaRota);
+        // Read
+        for(TarefaRota c : tarefaRotaDao.ReadTarefa()){
+
+            System.out.println("Id tarefa rota: "+c.getId() +", Observacao: "+c.getObservacao());
+            System.out.println("Data inicio: "+c.getData_inicio()+", data fim: "+c.getData_fim());
+            System.out.println("rota id: "+c.getRota_id());
+        }
     }
 }

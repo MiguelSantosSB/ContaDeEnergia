@@ -4,7 +4,7 @@ public class Cobranca {
     private int id;
     private String mes_referencia;
     private String ano_referencia;
-
+    private int tarifa_id;
     public int getId() {
         return id;
     }
@@ -27,5 +27,13 @@ public class Cobranca {
 
     public void setAno_referencia(String ano_referencia) {
         this.ano_referencia = ano_referencia;
+    }
+
+    public int getTarifa_id() {
+        return tarifa_id;
+    }
+
+    public void setTarifa_id(int tarifa_id) {
+        this.tarifa_id = tarifa_id;
     }
 }

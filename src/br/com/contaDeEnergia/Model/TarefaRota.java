@@ -2,12 +2,13 @@ package br.com.contaDeEnergia.Model;
 
 import java.util.Date;
 
-public class Tarefa_Rota {
+public class TarefaRota {
 
     private int id;
     private String observacao;
     private Date data_inicio;
     private Date data_fim;
+    private int rota_id;
 
     public int getId() {
         return id;
@@ -39,5 +40,13 @@ public class Tarefa_Rota {
 
     public void setData_fim(Date data_fim) {
         this.data_fim = data_fim;
+    }
+
+    public int getRota_id() {
+        return rota_id;
+    }
+
+    public void setRota_id(int rota_id) {
+        this.rota_id = rota_id;
     }
 }

@@ -1,17 +1,21 @@
 package br.com.contaDeEnergia.main;
 
-import br.com.contaDeEnergia.Model.Tipo_Fase;
-import br.com.contaDeEnergia.dao.ClasseDao;
-import br.com.contaDeEnergia.dao.Tipo_FaseDao;
+import br.com.contaDeEnergia.Model.TipoFase;
+import br.com.contaDeEnergia.dao.TipoFaseDao;
 
 public class ClasseTipo_fase {
     public static void main(String[] args) {
 
-        Tipo_FaseDao tipoFaseDao = new Tipo_FaseDao();
+        TipoFaseDao tipoFaseDao = new TipoFaseDao();
 
-        Tipo_Fase tipo_fase = new Tipo_Fase();
+        TipoFase tipo_fase = new TipoFase();
         tipo_fase.setDescricao("nao sei");
 
-        tipoFaseDao.create(tipo_fase);
+        //tipoFaseDao.Create(tipo_fase);
+        // Read
+        for (TipoFase c : tipoFaseDao.ReadTipoFase()) {
+
+            System.out.println("Id tipo fase: " + c.getId() + ", Descricao: " + c.getDescricao());
+        }
     }
 }

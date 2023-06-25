@@ -1,6 +1,5 @@
 package br.com.contaDeEnergia.dao;
 
-import br.com.contaDeEnergia.Model.Cobranca;
 import br.com.contaDeEnergia.Model.Contrato;
 import br.com.contaDeEnergia.factory.ConnectionFactory;
 
@@ -9,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContratoDao {
-    public void create(Contrato contrato){
+    public void Create(Contrato contrato){
 
-        String sql = "INSERT INTO contrato(descricao, data_inicio, data_criacao) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO contrato(descricao, data_inicio, data_criacao, medidor_id, classe_id, cliente_id) VALUES (?, ?, ?, ?, ?, ?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -24,6 +23,10 @@ public class ContratoDao {
             pstm.setString(1, contrato.getDescricao());
             pstm.setDate(2, new Date(contrato.getData_inicio().getTime()));
             pstm.setDate(3, new Date(contrato.getData_criacao().getTime()));
+            pstm.setInt(4, contrato.getMedidor_id());
+            pstm.setInt(5, contrato.getClasse_id());
+            pstm.setInt(6, contrato.getCliente_id());
+
             // Executa a query
             pstm.execute();
         }catch (Exception e){
@@ -67,6 +70,10 @@ public class ContratoDao {
                 contrato.setDescricao(rset.getString("descricao"));
                 contrato.setData_inicio(rset.getDate("data_inicio"));
                 contrato.setData_criacao(rset.getDate("data_criacao"));
+                contrato.setCliente_id(rset.getInt("cliente_id"));
+                contrato.setClasse_id(rset.getInt("classe_id"));
+                contrato.setMedidor_id(rset.getInt("medidor_id"));
+
 
                 contratos.add(contrato);
             }

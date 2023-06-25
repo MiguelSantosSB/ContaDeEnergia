@@ -14,6 +14,12 @@ public class ClassePoste {
         poste.setCodigo("5562322");
         poste.setObservacao("poste ok viu, nao caiu");
 
-        posteDao.create(poste);
+        //posteDao.Create(poste);
+        // Read
+        for(Poste c : posteDao.ReadPoste()){
+
+            System.out.println("Id poste: "+c.getId() +", latitude: "+c.getLatitude()+", longitude: "+c.getLongitude());
+            System.out.println("Codigo: "+c.getCodigo()+", Observacao: "+c.getObservacao());
+        }
     }
 }

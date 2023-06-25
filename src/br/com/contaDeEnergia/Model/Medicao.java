@@ -8,6 +8,8 @@ public class Medicao {
     private String ano;
     private Date data_medicao;
     private String consumo;
+    private int medidor_id;
+    private int time_rota_id;
 
     public int getId() {
         return id;
@@ -47,5 +49,21 @@ public class Medicao {
 
     public void setConsumo(String consumo) {
         this.consumo = consumo;
+    }
+
+    public int getMedidor_id() {
+        return medidor_id;
+    }
+
+    public void setMedidor_id(int medidor_id) {
+        this.medidor_id = medidor_id;
+    }
+
+    public int getTime_rota_id() {
+        return time_rota_id;
+    }
+
+    public void setTime_rota_id(int time_rota_id) {
+        this.time_rota_id = time_rota_id;
     }
 }

@@ -1,17 +1,22 @@
 package br.com.contaDeEnergia.main;
 
-import br.com.contaDeEnergia.Model.Tipo_Pessoa;
-import br.com.contaDeEnergia.dao.Tipo_PessoaDao;
+import br.com.contaDeEnergia.Model.TipoPessoa;
+import br.com.contaDeEnergia.dao.TipoPessoaDao;
 
 public class ClasseTipo_pessoa {
     public static void main(String[] args) {
 
-        Tipo_PessoaDao  tipo_pessoaDao = new Tipo_PessoaDao();
+        TipoPessoaDao tipo_pessoaDao = new TipoPessoaDao();
 
-        Tipo_Pessoa tipo_pessoa = new Tipo_Pessoa();
+        TipoPessoa tipo_pessoa = new TipoPessoa();
         //funcionario ou cliente
         tipo_pessoa.setDescricao("cliente");
 
-        tipo_pessoaDao.create(tipo_pessoa);
+        //tipo_pessoaDao.Create(tipo_pessoa);
+        // Read
+        for(TipoPessoa c : tipo_pessoaDao.ReadTipoPessoa()){
+
+            System.out.println("Id tipo pessoa: "+c.getId() +", Descricao: "+c.getDescricao());
+        }
     }
 }

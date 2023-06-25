@@ -12,8 +12,15 @@ public class ClassePessoa {
         pessoa.setNome("Miguel");
         pessoa.setCpf("57679294089");
         pessoa.setCnpj("29296788000107");
-        //pessoa.setTipo_pessoa_id(1);
+        pessoa.setTipo_pessoa_id(1);
 
-        pessoaDao.create(pessoa);
+        //pessoaDao.Create(pessoa);
+        // Read
+        for(Pessoa c : pessoaDao.ReadPessoa()){
+
+            System.out.println("Pessoa id: "+c.getId() +", Cpf: "+c.getCpf()+", Cnpj: "+c.getCnpj());
+            System.out.println("Tipo: "+c.getTipo_pessoa_id());
+
+        }
     }
 }

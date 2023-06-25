@@ -1,54 +1,52 @@
 package br.com.contaDeEnergia.dao;
 
-import br.com.contaDeEnergia.Model.Medidor;
+import br.com.contaDeEnergia.Model.TipoPessoa;
 import br.com.contaDeEnergia.factory.ConnectionFactory;
-
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedidorDao {
-    public void Create(Medidor medidor){
+public class TipoPessoaDao {
 
-        String sql = "INSERT INTO medidor(descricao, rota_id, poste_id) VALUES (?, ?, ?)";
+    public void Create(TipoPessoa tipo_pessoa) {
+        String sql = "INSERT INTO tipopessoa(descricao) VALUES (?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
-
         try{
-            //cria conexão com o bd
             conn = ConnectionFactory.createConnectionToMySQL();
 
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, medidor.getDescricao());
-            pstm.setInt(2, medidor.getRota_id());
-            pstm.setInt(3, medidor.getPoste_id());
+            pstm.setString(1, tipo_pessoa.getDescricao());
 
-            // Executa a query
             pstm.execute();
-        }catch (Exception e){
+        }catch(
+                Exception e)
+
+        {
             e.printStackTrace();
-        }finally {
-            try{
-                if(pstm!=null){
+        }finally
+
+        {
+            try {
+                if (pstm != null) {
                     pstm.close();
                 }
-                if(conn!=null){
+                if (conn != null) {
                     conn.close();
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
-    public List<Medidor> ReadMedidor(){
+    public List<TipoPessoa> ReadTipoPessoa(){
 
-        String sql = "SELECT * FROM medidor";
+        String sql = "SELECT * FROM tipopessoa";
 
-        List<Medidor> medidores = new ArrayList<Medidor>();
+        List<TipoPessoa> tipoPessoas = new ArrayList<TipoPessoa>();
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -63,14 +61,12 @@ public class MedidorDao {
             rset = pstm.executeQuery();
 
             while(rset.next()){
-                Medidor medidor = new Medidor();
+                TipoPessoa tipoPessoa = new TipoPessoa();
                 //Pegar o id
-                medidor.setId(rset.getInt("id"));
-                medidor.setDescricao(rset.getString("descricao"));
-                medidor.setPoste_id(rset.getInt("poste_id"));
-                medidor.setRota_id(rset.getInt("rota_id"));
+                tipoPessoa.setId(rset.getInt("id"));
+                tipoPessoa.setDescricao(rset.getString("descricao"));
 
-                medidores.add(medidor);
+                tipoPessoas.add(tipoPessoa);
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -89,6 +85,6 @@ public class MedidorDao {
                 e.printStackTrace();
             }
         }
-        return medidores;
+        return tipoPessoas;
     }
 }

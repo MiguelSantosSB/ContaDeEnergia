@@ -11,6 +11,11 @@ public class ClasseRota {
         Rota rota = new Rota();
         rota.setDescricao("rua tal, numero tal, bairro tal");
 
-        rotaDao.create(rota);
+        rotaDao.Create(rota);
+        // Read
+        for(Rota c : rotaDao.ReadRota()){
+
+            System.out.println("Id rota: "+c.getId() +", Descricao da rota: "+c.getDescricao());
+        }
     }
 }

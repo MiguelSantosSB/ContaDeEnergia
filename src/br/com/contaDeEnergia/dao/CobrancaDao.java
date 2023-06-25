@@ -13,7 +13,7 @@ import java.util.List;
 public class CobrancaDao {
     public void Create(Cobranca cobranca){
 
-        String sql = "INSERT INTO cobranca(mes_referencia, ano_referencia) VALUES (?, ?)";
+        String sql = "INSERT INTO cobranca(mes_referencia, ano_referencia, tarifa_id) VALUES (?, ?, ?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -25,6 +25,7 @@ public class CobrancaDao {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, cobranca.getMes_referencia());
             pstm.setString(2, cobranca.getAno_referencia());
+            pstm.setInt(3, cobranca.getTarifa_id());
 
             // Executa a query
             pstm.execute();
@@ -68,6 +69,7 @@ public class CobrancaDao {
                 cobranca.setId(rset.getInt("id"));
                 cobranca.setMes_referencia(rset.getString("mes_referencia"));
                 cobranca.setAno_referencia(rset.getString("ano_referencia"));
+                cobranca.setTarifa_id(rset.getInt("tarifa_id"));
 
                 cobrancas.add(cobranca);
             }
