@@ -3,27 +3,54 @@ package br.com.contaDeEnergia.main;
 import br.com.contaDeEnergia.Model.TimeRota;
 import br.com.contaDeEnergia.dao.TimeRotaDao;
 
+import java.util.Scanner;
+
 public class ClasseTimeRota {
 
     public static int num = 1;
     public static void main(String[] args) {
-        TimeRotaDao timeRotaDao = new TimeRotaDao();
 
-        TimeRota timeRota = new TimeRota();
-        timeRota.setFuncionario_id(num);
-        timeRota.setTarefa_rota_id(num);
+        Scanner escolha = new Scanner(System.in);
 
-        //timeRotaDao.Create(timeRota);
+        System.out.println("Digite a opcao desejada: "+
+                "\n 1 / Criar novo dado."+
+                "\n 2 / Deletar algum dado."+
+                "\n 3 / Ler dados."
+        );
+        int opcao = escolha.nextInt();
+        switch (opcao){
+            case 1:
+                // Create
+                TimeRotaDao timeRotaDao = new TimeRotaDao();
+                TimeRota timeRota = new TimeRota();
 
-        // Update
-        TimeRota timeRota1 = new TimeRota();
-        // nao foi colocado nada pois a tabela time rota
-        // e composta apenas de ids estrangeiros.
+                timeRota.setFuncionario_id(num);
+                timeRota.setTarefa_rota_id(num);
 
-        // Read
-        for(TimeRota c : timeRotaDao.ReadTimeRota()){
+                timeRotaDao.Create(timeRota);
+                break;
+            case 2:
+                // Delete
+                TimeRotaDao tRotaDao = new TimeRotaDao();
 
-            System.out.println("Id Time rota: "+c.getId() +", Id funcionario: "+c.getFuncionario_id()+"Id Tarefa rota"+c.getTarefa_rota_id());
+                System.out.println("Informe o Id do dado a ser deletado: ");
+                Scanner dado = new Scanner(System.in);
+                int id = dado.nextInt();
+
+                tRotaDao.Delete(id);
+                break;
+            case 3:
+                // Read
+                TimeRotaDao readDao = new TimeRotaDao();
+
+                for(TimeRota c : readDao.ReadTimeRota()){
+
+                    System.out.println("Id Time rota: "+c.getId() +", Id funcionario: "+c.getFuncionario_id()+"Id Tarefa rota"+c.getTarefa_rota_id());
+
+                }
+                break;
+            default:
+                System.out.println("Opcao escolhida invalida");
         }
     }
 }

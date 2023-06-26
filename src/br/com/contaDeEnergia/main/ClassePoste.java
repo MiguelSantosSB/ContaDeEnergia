@@ -3,34 +3,68 @@ package br.com.contaDeEnergia.main;
 import br.com.contaDeEnergia.Model.Poste;
 import br.com.contaDeEnergia.dao.PosteDao;
 
+import java.util.Scanner;
+
 public class ClassePoste {
     public static void main(String[] args) {
 
-        PosteDao posteDao = new PosteDao();
+        Scanner escolha = new Scanner(System.in);
 
-        Poste poste = new Poste();
-        poste.setLatitude("41.3144");
-        poste.setLongitude("43.0029");
-        poste.setCodigo("5562322");
-        poste.setObservacao("poste ok viu, nao caiu");
+        System.out.println("Digite a opcao desejada: "+
+                "\n 1 / Criar novo dado."+
+                "\n 2 / Deletar algum dado."+
+                "\n 3 / Atualizar dado escolhido."+
+                "\n 4 / Ler dados."
+        );
+        int opcao = escolha.nextInt();
+        switch (opcao){
+            case 1:
+                // Create
+                PosteDao posteDao = new PosteDao();
+                Poste poste = new Poste();
 
-        //posteDao.Create(poste);
+                poste.setLatitude("41.3144");
+                poste.setLongitude("43.0029");
+                poste.setCodigo("5562322");
+                poste.setObservacao("poste ok viu, nao caiu");
 
-        // Update
-        Poste poste1 = new Poste();
-        poste1.setLatitude("");
-        poste1.setLongitude("");
-        poste1.setCodigo("");
-        poste1.setObservacao("");
-        poste1.setId(1);
+                posteDao.Create(poste);
+                break;
+            case 2:
+                // Delete
+                PosteDao posteDaoDelete = new PosteDao();
 
-        posteDao.Update(poste1);
+                System.out.println("Informe o Id do dado a ser deletado: ");
+                Scanner dado = new Scanner(System.in);
+                int id = dado.nextInt();
 
-        // Read
-        for(Poste c : posteDao.ReadPoste()){
+                posteDaoDelete.Delete(id);
+                break;
+            case 3:
+                // Update
+                PosteDao posteDaoUpdate = new PosteDao();
+                Poste poste1 = new Poste();
 
-            System.out.println("Id poste: "+c.getId() +", latitude: "+c.getLatitude()+", longitude: "+c.getLongitude());
-            System.out.println("Codigo: "+c.getCodigo()+", Observacao: "+c.getObservacao());
+                poste1.setLatitude("");
+                poste1.setLongitude("");
+                poste1.setCodigo("");
+                poste1.setObservacao("");
+                poste1.setId(1);
+
+                posteDaoUpdate.Update(poste1);
+                break;
+            case 4:
+                // Read
+                PosteDao readDao = new PosteDao();
+
+                for(Poste c : readDao.ReadPoste()){
+
+                    System.out.println("Id poste: "+c.getId() +", latitude: "+c.getLatitude()+", longitude: "+c.getLongitude());
+                    System.out.println("Codigo: "+c.getCodigo()+", Observacao: "+c.getObservacao());
+                }
+                break;
+            default:
+                System.out.println("Opcao escolhida invalida");
         }
     }
 }
