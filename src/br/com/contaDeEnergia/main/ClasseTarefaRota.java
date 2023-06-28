@@ -3,7 +3,6 @@ package br.com.contaDeEnergia.main;
 import br.com.contaDeEnergia.Model.TarefaRota;
 import br.com.contaDeEnergia.dao.TarefaRotaDao;
 
-import java.util.Date;
 import java.util.Scanner;
 
 public class ClasseTarefaRota {
@@ -24,10 +23,11 @@ public class ClasseTarefaRota {
                 TarefaRotaDao tarefaRotaDao = new TarefaRotaDao();
                 TarefaRota tarefaRota = new TarefaRota();
 
-                tarefaRota.setObservacao("esqueci");
-                tarefaRota.setData_inicio(new Date());
-                tarefaRota.setData_fim(new Date());
-                tarefaRota.setRota_id(1);
+                tarefaRota.setObservacao("...");
+                tarefaRota.setData_inicio("28/06/2023");
+                tarefaRota.setData_fim("24/07/2023");
+                tarefaRota.setRota_id(3);
+//  TODO sei la
 
                 tarefaRotaDao.Create(tarefaRota);
                 break;
@@ -50,9 +50,9 @@ public class ClasseTarefaRota {
                 Scanner data = new Scanner(System.in);
                 int idUp = data.nextInt();
 
-                tarefaRota1.setObservacao("");
-                tarefaRota1.setData_inicio(new Date());
-                tarefaRota1.setData_fim(new Date());
+                tarefaRota1.setObservacao("...");
+                tarefaRota1.setData_inicio("28/06/2023");
+                tarefaRota1.setData_fim("29/07/2023");
                 tarefaRota1.setId(idUp);
 
                 updateTarefaRota.Update(tarefaRota1);

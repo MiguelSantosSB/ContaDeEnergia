@@ -17,7 +17,7 @@ public class Tarifa {
             pstm = conn.createStatement();
 
             String sql = "CREATE TABLE tarifa"+
-                    " (id INT NOT NULL UNIQUE, "+
+                    " (id INT NOT NULL AUTO_INCREMENT, "+
                     " taxa VARCHAR(45) NOT NULL, "+
                     " lei VARCHAR(45) NOT NULL, "+
                     " data_inicio VARCHAR(45) NOT NULL, "+

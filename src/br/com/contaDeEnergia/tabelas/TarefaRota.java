@@ -20,8 +20,8 @@ public class TarefaRota {
             String sql = "CREATE TABLE tarefarota" +
                     " (id INT NOT NULL AUTO_INCREMENT, " +
                     " observacao VARCHAR(45) NULL,"+
-                    " data_inicio TIMESTAMP NULL,"+
-                    " data_fim TIMESTAMP NULL,"+
+                    " data_inicio VARCHAR(45) NULL,"+
+                    " data_fim VARCHAR(45) NULL,"+
                     " rota_id INT NULL,"+
 
                     " PRIMARY KEY (id),"+

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ClasseTimeRota {
 
-    public static int num = 1;
+    //public static int num = 3;
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);
@@ -24,8 +24,8 @@ public class ClasseTimeRota {
                 TimeRotaDao timeRotaDao = new TimeRotaDao();
                 TimeRota timeRota = new TimeRota();
 
-                timeRota.setFuncionario_id(num);
-                timeRota.setTarefa_rota_id(num);
+                timeRota.setFuncionario_id(1);
+                timeRota.setTarefa_rota_id(3);
 
                 timeRotaDao.Create(timeRota);
                 break;

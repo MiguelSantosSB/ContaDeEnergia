@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +25,9 @@ public class TarefaRotaDao {
 
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, tarefarota.getObservacao());
-            pstm.setDate(2, new Date(tarefarota.getData_inicio().getTime()));
-            pstm.setDate(3, new Date(tarefarota.getData_fim().getTime()));
+            pstm.setString(2, tarefarota.getData_inicio());
+            //pstm.setDate(2, new Date(tarefarota.getData_inicio()));
+            pstm.setString(3, tarefarota.getData_fim());
             pstm.setInt(4, tarefarota.getRota_id());
 
             // Executa a query
@@ -93,8 +95,9 @@ public class TarefaRotaDao {
 
             // Adicionar os valores para atualizar
             pstm.setString(1, tarefaRota.getObservacao());
-            pstm.setDate(2, new Date(tarefaRota.getData_inicio().getTime()));
-            pstm.setDate(3, new Date(tarefaRota.getData_fim().getTime()));
+            //pstm.setDate(2, new Date(tarefaRota.getData_inicio().getTime()));
+            pstm.setString(2, tarefaRota.getData_inicio());
+            pstm.setString(3, tarefaRota.getData_fim());
             // Qual id do registro que vai ser atualizado
             pstm.setInt(4, tarefaRota.getId());
 
@@ -139,8 +142,8 @@ public class TarefaRotaDao {
                 //Pegar o id
                 tarefaRota.setId(rset.getInt("id"));
                 tarefaRota.setObservacao(rset.getString("observacao"));
-                tarefaRota.setData_inicio(rset.getDate("data_inicio"));
-                tarefaRota.setData_fim(rset.getDate("data_fim"));
+                tarefaRota.setData_inicio(rset.getString("data_inicio"));
+                tarefaRota.setData_fim(rset.getString("data_fim"));
                 tarefaRota.setRota_id(rset.getInt("rota_id"));
 
                 tarefaRotas.add(tarefaRota);

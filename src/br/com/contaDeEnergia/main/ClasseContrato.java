@@ -3,11 +3,13 @@ package br.com.contaDeEnergia.main;
 import br.com.contaDeEnergia.Model.Contrato;
 import br.com.contaDeEnergia.dao.ContratoDao;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Scanner;
 
 public class ClasseContrato {
-    private static int num = 1;
+    private static int num = 3;
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);
@@ -25,8 +27,10 @@ public class ClasseContrato {
                 ContratoDao contratoDao = new ContratoDao();
                 Contrato contrato = new Contrato();
 
-                contrato.setDescricao("ta pagoooo");
+                contrato.setDescricao("Contrato referente a compra de servico de energina.");
+                //contrato.setData_criacao(Date.from(Instant.from(LocalDate.now())));
                 contrato.setData_criacao(new Date());
+                //contrato.setData_inicio(Date.from(Instant.from(LocalDate.now().plusMonths(1))));
                 contrato.setData_inicio(new Date());
                 contrato.setMedidor_id(num);
                 contrato.setClasse_id(num);

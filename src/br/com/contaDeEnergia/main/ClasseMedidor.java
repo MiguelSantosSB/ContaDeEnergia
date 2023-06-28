@@ -6,7 +6,7 @@ import br.com.contaDeEnergia.dao.MedidorDao;
 import java.util.Scanner;
 
 public class ClasseMedidor {
-    private static int num =1;
+    private static int num = 3;
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);
@@ -24,7 +24,7 @@ public class ClasseMedidor {
                 MedidorDao medidorDao = new MedidorDao();
                 Medidor medidor = new Medidor();
 
-                medidor.setDescricao("medidor funcionando");
+                medidor.setDescricao("medidor valido");
                 medidor.setRota_id(num);
                 medidor.setPoste_id(num);
 

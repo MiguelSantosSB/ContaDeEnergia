@@ -19,7 +19,7 @@ public class Rota {
 
             String sql = "CREATE TABLE rota" +
                     " (id INT NOT NULL AUTO_INCREMENT," +
-                    " descricao VARCHAR(45) NULL,"+
+                    " descricao VARCHAR(60) NULL,"+
                     " PRIMARY KEY (id))";
 
             pstm.executeUpdate(sql);

@@ -23,12 +23,12 @@ public class ClasseTarifa {
                 TarifaDao tarifaDao = new TarifaDao();
                 Tarifa tarifa = new Tarifa();
 
-                tarifa.setTaxa("");
-                tarifa.setLei("");
-                tarifa.setData_inicio("");
-                tarifa.setData_fim("");
-                tarifa.setAliquota_ICMS("");
-                tarifa.setClasse_id(1);
+                tarifa.setTaxa("100 kWh - R$ 14,20");
+                tarifa.setLei("lei n°12.212, decreto n°7.583");
+                tarifa.setData_inicio("2011-10-13");
+                tarifa.setData_fim("---");
+                tarifa.setAliquota_ICMS("12%");
+                tarifa.setClasse_id(3);
 
                 tarifaDao.Create(tarifa);
                 break;

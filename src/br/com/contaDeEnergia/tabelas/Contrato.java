@@ -19,9 +19,9 @@ public class Contrato {
 
             String sql = "CREATE TABLE contrato"+
                     " (id INT NOT NULL AUTO_INCREMENT, "+
-                    " descricao VARCHAR(45), "+
-                    " data_inicio TIMESTAMP, "+
-                    " data_criacao TIMESTAMP, "+
+                    " descricao VARCHAR(60), "+
+                    " data_inicio VARCHAR(45), "+
+                    " data_criacao VARCHAR(45), "+
                     " medidor_id INT NULL, "+
                     " classe_id INT NULL, "+
                     " cliente_id INT NULL, "+

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ClienteDao {
     public void Create(Cliente cliente){
-        String sql = "INSERT INTO cliente(num_documento, num_cliente) VALUES (?, ?)";
+        String sql = "INSERT INTO cliente(num_documento, num_cliente, pessoa_id) VALUES (?, ?, ?)";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -23,6 +23,7 @@ public class ClienteDao {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, cliente.getNum_documento());
             pstm.setString(2, cliente.getNum_cliente());
+            pstm.setInt(3, cliente.getPessoa_id());
 
             // Executa a query
             pstm.execute();

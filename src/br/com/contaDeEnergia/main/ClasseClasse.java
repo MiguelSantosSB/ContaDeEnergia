@@ -23,8 +23,8 @@ public class ClasseClasse {
                 ClasseDao classeDao = new ClasseDao();
                 Classe classe = new Classe();
 
-                classe.setDescricao("completa");
-                classe.setTipo_fase_id(1);
+                classe.setDescricao("Finalizada");
+                classe.setTipo_fase_id(3);
 
                 classeDao.Create(classe);
                 break;
@@ -60,6 +60,13 @@ public class ClasseClasse {
 
                     System.out.println("Classe "+c.getId() +": "+c.getDescricao());
                 }
+
+                for(Classe d : readDao.JoinClasse()){
+
+                    System.out.println( "? : "+d.getId()+"| sei n: "+d.getDescricao()+"| :"+d.getTipo_fase_id()
+                    );
+                }
+
                 break;
             default:
                 System.out.println("Opcao escolhida invalida");

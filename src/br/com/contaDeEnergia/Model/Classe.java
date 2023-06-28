@@ -5,6 +5,7 @@ public class Classe {
     private String descricao;
     private int tipo_fase_id;
 
+
     public int getId() {
         return id;
     }

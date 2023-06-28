@@ -3,11 +3,10 @@ package br.com.contaDeEnergia.main;
 import br.com.contaDeEnergia.Model.Medicao;
 import br.com.contaDeEnergia.dao.MedicaoDao;
 
-import java.util.Date;
 import java.util.Scanner;
 
 public class ClasseMedicao {
-    private static int num = 1;
+    //private static int num = 2;
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);
@@ -25,12 +24,12 @@ public class ClasseMedicao {
                 MedicaoDao medicaoDao = new MedicaoDao();
                 Medicao medicao = new Medicao();
 
-                medicao.setMes("julho");
+                medicao.setMes("junho");
                 medicao.setAno("2023");
-                medicao.setData_medicao(new Date(2002,9,10));
+                medicao.setData_medicao("1/07/2023");
                 medicao.setConsumo("2500W");
-                medicao.setMedidor_id(num);
-                medicao.setTime_rota_id(num);
+                medicao.setMedidor_id(3);
+                medicao.setTime_rota_id(4);
 
                 medicaoDao.Create(medicao);
                 break;

@@ -23,10 +23,10 @@ public class ClassePoste {
                 PosteDao posteDao = new PosteDao();
                 Poste poste = new Poste();
 
-                poste.setLatitude("41.3144");
-                poste.setLongitude("43.0029");
-                poste.setCodigo("5562322");
-                poste.setObservacao("poste ok viu, nao caiu");
+                poste.setLatitude("50.5024");
+                poste.setLongitude("7.6327");
+                poste.setCodigo("89702326990");
+                poste.setObservacao("");
 
                 posteDao.Create(poste);
                 break;
@@ -45,9 +45,9 @@ public class ClassePoste {
                 PosteDao posteDaoUpdate = new PosteDao();
                 Poste poste1 = new Poste();
 
-                poste1.setLatitude("");
-                poste1.setLongitude("");
-                poste1.setCodigo("");
+                poste1.setLatitude("87.8593");
+                poste1.setLongitude("-140.8365");
+                poste1.setCodigo("61202290787");
                 poste1.setObservacao("");
                 poste1.setId(1);
 

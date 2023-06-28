@@ -23,7 +23,7 @@ public class ClasseTipoFase {
                 TipoFaseDao tipoFaseDao = new TipoFaseDao();
                 TipoFase tipoFase = new TipoFase();
 
-                tipoFase.setDescricao("nao sei");
+                tipoFase.setDescricao("Completa");
 
                 tipoFaseDao.Create(tipoFase);
                 break;

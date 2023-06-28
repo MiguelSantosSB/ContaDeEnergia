@@ -23,7 +23,7 @@ public class ClasseRota {
                 RotaDao rotaDao = new RotaDao();
                 Rota rota = new Rota();
 
-                rota.setDescricao("rua tal, numero tal, bairro tal");
+                rota.setDescricao("481 Carlos Travessa - Pedro Teixeira, SP / 70278-919");
 
                 rotaDao.Create(rota);
                 break;
@@ -47,7 +47,7 @@ public class ClasseRota {
                 int idUp = data.nextInt();
 
                 rota1.setDescricao("");
-                rota1.setId(1);
+                rota1.setId(idUp);
 
                 updateDao.Update(rota1);
                 break;

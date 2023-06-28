@@ -1,6 +1,7 @@
 package br.com.contaDeEnergia.dao;
 
 import br.com.contaDeEnergia.Model.Classe;
+import br.com.contaDeEnergia.Model.TipoFase;
 import br.com.contaDeEnergia.factory.ConnectionFactory;
 
 import java.sql.Connection;
@@ -155,5 +156,52 @@ public class ClasseDao {
             }
         }
         return classes;
+    }
+
+    public List<Classe> JoinClasse(){
+
+        String sql = " SELECT * FROM classe INNER JOIN tipofase ON classe.tipo_fase_id = tipofase.id";
+
+        Connection conn = null;
+        PreparedStatement pstm = null;
+        // recuper os dados do banco
+        ResultSet rset = null;
+        List<Classe> lista = new ArrayList<>();
+
+        try{
+            conn = ConnectionFactory.createConnectionToMySQL();
+            pstm = conn.prepareStatement(sql);
+            rset = pstm.executeQuery();
+
+            while(rset.next()){
+                Classe joinClasse = new Classe();
+                TipoFase tipofase = new TipoFase();
+
+                joinClasse.setId(rset.getInt("id"));
+                joinClasse.setDescricao(rset.getString("descricao"));
+                joinClasse.setTipo_fase_id(rset.getInt("tipo_fase_id"));
+                tipofase.setDescricao(rset.getString("descricao"));
+                //tipofase = ClasseDao.ReadClasse(joinClasse);
+
+                lista.add(joinClasse);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(rset!=null){
+                    rset.close();
+                }
+                if(pstm!=null){
+                    pstm.close();
+                }
+                if (conn!=null){
+                    conn.close();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return lista;
     }
 }

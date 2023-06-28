@@ -24,8 +24,8 @@ public class ClasseFuncionario {
                 FuncionarioDao funcionarioDao = new FuncionarioDao();
                 Funcionario funcionario = new Funcionario();
 
-                funcionario.setCodigo_funcional("40028922");
-                funcionario.setPessoa_id(2);;
+                funcionario.setCodigo_funcional("04923340304");
+                funcionario.setPessoa_id(4);;
 
                 funcionarioDao.Create(funcionario);
                 break;

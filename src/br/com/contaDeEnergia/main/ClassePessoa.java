@@ -23,10 +23,10 @@ public class ClassePessoa {
                 PessoaDao pessoaDao = new PessoaDao();
                 Pessoa pessoa = new Pessoa();
 
-                pessoa.setNome("Pedro");
-                pessoa.setCpf("57679294080");
-                pessoa.setCnpj("29296788000106");
-                pessoa.setTipo_pessoa_id(1);
+                pessoa.setNome("João Paulo Abreu de Sousa");
+                pessoa.setCpf("184.586.100-00");
+                pessoa.setCnpj("73.801.952/0001-88");
+                pessoa.setTipo_pessoa_id(5);
 
                 pessoaDao.Create(pessoa);
                 break;

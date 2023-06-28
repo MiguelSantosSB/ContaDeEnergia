@@ -23,9 +23,9 @@ public class ClasseCobranca {
                 CobrancaDao cobrancaDao = new CobrancaDao();
                 Cobranca cobranca = new Cobranca();
 
-                cobranca.setMes_referencia("");
-                cobranca.setAno_referencia("");
-                cobranca.setTarifa_id(1);
+                cobranca.setMes_referencia("junho");
+                cobranca.setAno_referencia("2023");
+                cobranca.setTarifa_id(3);
 
                 cobrancaDao.Create(cobranca);
                 break;

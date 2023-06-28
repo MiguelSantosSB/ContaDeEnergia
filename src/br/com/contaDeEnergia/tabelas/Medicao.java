@@ -20,7 +20,7 @@ public class Medicao {
                     " (id INT NOT NULL AUTO_INCREMENT,"+
                     " mes VARCHAR(45) NOT NULL,"+
                     " ano VARCHAR(45) NOT NULL,"+
-                    " data_medicao TIMESTAMP NOT NULL,"+
+                    " data_medicao VARCHAR(45) NOT NULL,"+
                     " consumo VARCHAR(45) NOT NULL,"+
                     " medidor_id INT NULL,"+
                     " time_rota_id INT NULL,"+

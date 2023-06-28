@@ -23,9 +23,9 @@ public class ClasseCliente {
                 ClienteDao clienteDao = new ClienteDao();
                 Cliente cliente = new Cliente();
 
-                cliente.setNum_documento("229839678");
-                cliente.setNum_cliente("1");
-                cliente.setPessoa_id(1);
+                cliente.setNum_documento("28.626.781-0");
+                cliente.setNum_cliente("003");
+                cliente.setPessoa_id(5);
 
                 clienteDao.Create(cliente);
                 break;

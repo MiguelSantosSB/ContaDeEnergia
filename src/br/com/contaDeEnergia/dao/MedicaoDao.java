@@ -25,7 +25,7 @@ public class MedicaoDao {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, medicao.getMes());
             pstm.setString(2, medicao.getAno());
-            pstm.setDate(3, new Date(medicao.getData_medicao().getTime()));
+            pstm.setString(3, medicao.getData_medicao());
             pstm.setString(4, medicao.getConsumo());
             pstm.setInt(5, medicao.getMedidor_id());
             pstm.setInt(6, medicao.getTime_rota_id());
@@ -96,7 +96,7 @@ public class MedicaoDao {
             // Adicionar os valores para atualizar
             pstm.setString(1, medicao.getMes());
             pstm.setString(2, medicao.getAno());
-            pstm.setDate(3, new Date(medicao.getData_medicao().getTime()));
+            pstm.setString(3, medicao.getData_medicao());
             pstm.setString(4, medicao.getConsumo());
             // Qual id do registro que vai ser atualizado
             pstm.setInt(5, medicao.getId());
@@ -143,7 +143,7 @@ public class MedicaoDao {
                 medicao.setId(rset.getInt("id"));
                 medicao.setMes(rset.getString("mes"));
                 medicao.setAno(rset.getString("ano"));
-                medicao.setData_medicao(rset.getDate("data_medicao"));
+                medicao.setData_medicao(rset.getString("data_medicao"));
                 medicao.setConsumo(rset.getString("consumo"));
                 medicao.setMedidor_id(rset.getInt("medidor_id"));
                 medicao.setTime_rota_id(rset.getInt("time_rota_id"));

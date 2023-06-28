@@ -6,7 +6,7 @@ public class Medicao {
     private int id;
     private String mes;
     private String ano;
-    private Date data_medicao;
+    private String data_medicao;
     private String consumo;
     private int medidor_id;
     private int time_rota_id;
@@ -35,11 +35,11 @@ public class Medicao {
         this.ano = ano;
     }
 
-    public Date getData_medicao() {
+    public String getData_medicao() {
         return data_medicao;
     }
 
-    public void setData_medicao(Date data_medicao) {
+    public void setData_medicao(String data_medicao) {
         this.data_medicao = data_medicao;
     }
 
