@@ -1,11 +1,11 @@
 package br.com.contaDeEnergia.main;
 
-import br.com.contaDeEnergia.Model.Rota;
-import br.com.contaDeEnergia.dao.RotaDao;
+import br.com.contaDeEnergia.Model.Cliente;
+import br.com.contaDeEnergia.dao.ClienteDao;
 
 import java.util.Scanner;
 
-public class ClasseRota {
+public class ClienteExecute {
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);
@@ -20,50 +20,52 @@ public class ClasseRota {
         switch (opcao){
             case 1:
                 // Create
-                RotaDao rotaDao = new RotaDao();
-                Rota rota = new Rota();
+                ClienteDao clienteDao = new ClienteDao();
+                Cliente cliente = new Cliente();
 
-                rota.setDescricao("481 Carlos Travessa - Pedro Teixeira, SP / 70278-919");
+                cliente.setNum_documento("28.626.781-0");
+                cliente.setNum_cliente("003");
+                cliente.setPessoa_id(5);
 
-                rotaDao.Create(rota);
+                clienteDao.Create(cliente);
                 break;
             case 2:
                 // Delete
-                RotaDao rotaDaoDelete = new RotaDao();
+                ClienteDao clienteDaoDelete = new ClienteDao();
 
                 System.out.println("Informe o Id do dado a ser deletado: ");
                 Scanner dado = new Scanner(System.in);
                 int id = dado.nextInt();
 
-                rotaDaoDelete.Delete(id);
+                clienteDaoDelete.Delete(id);
                 break;
             case 3:
                 // Update
-                RotaDao updateDao = new RotaDao();
-                Rota rota1 = new Rota();
+                ClienteDao upgradeDao = new ClienteDao();
+                Cliente cliente1 = new Cliente();
 
                 System.out.println("Informe o Id do dado a ser atualizado: ");
                 Scanner data = new Scanner(System.in);
                 int idUp = data.nextInt();
 
-                rota1.setDescricao("");
-                rota1.setId(idUp);
+                cliente1.setNum_documento("229846987");
+                cliente1.setNum_cliente("2");
+                cliente1.setId(idUp);
 
-                updateDao.Update(rota1);
+                upgradeDao.Update(cliente1);
                 break;
             case 4:
                 // Read
-                RotaDao readDao = new RotaDao();
+                ClienteDao readDao = new ClienteDao();
 
-                for(Rota c : readDao.ReadRota()){
-
-                    System.out.println("Id: "+c.getId() +"| Descricao da rota: "+c.getDescricao());
-
+                for(Cliente c : readDao.ReadCliente()){
+                    System.out.println("Cliente:"+c.getId());
+                    System.out.println("Cliente: "+c.getNum_cliente());
+                    System.out.println("Cliente: "+c.getNum_documento());
                 }
                 break;
             default:
                 System.out.println("Opcao escolhida invalida");
         }
-
     }
 }

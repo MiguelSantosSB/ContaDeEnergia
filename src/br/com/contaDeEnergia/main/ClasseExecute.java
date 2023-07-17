@@ -1,11 +1,11 @@
 package br.com.contaDeEnergia.main;
 
-import br.com.contaDeEnergia.Model.TipoPessoa;
-import br.com.contaDeEnergia.dao.TipoPessoaDao;
+import br.com.contaDeEnergia.Model.Classe;
+import br.com.contaDeEnergia.dao.ClasseDao;
 
 import java.util.Scanner;
 
-public class ClasseTipoPessoa {
+public class ClasseExecute {
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);
@@ -20,47 +20,53 @@ public class ClasseTipoPessoa {
         switch (opcao){
             case 1:
                 // Create
-                TipoPessoaDao tipoPessoaDao = new TipoPessoaDao();
-                TipoPessoa tipoPessoa = new TipoPessoa();
+                ClasseDao classeDao = new ClasseDao();
+                Classe classe = new Classe();
 
-                //funcionario ou cliente
-                tipoPessoa.setDescricao("cliente");
+                classe.setDescricao("Finalizada");
+                classe.setTipo_fase_id(3);
 
-                tipoPessoaDao.Create(tipoPessoa);
+                classeDao.Create(classe);
                 break;
             case 2:
                 // Delete
-                TipoPessoaDao tpDelete = new TipoPessoaDao();
+                ClasseDao classeDaoDelete = new ClasseDao();
 
                 System.out.println("Informe o Id do dado a ser deletado: ");
                 Scanner dado = new Scanner(System.in);
                 int id = dado.nextInt();
 
-                tpDelete.Delete(id);
+                classeDaoDelete.Delete(id);
                 break;
             case 3:
                 // Update
-                TipoPessoaDao updateDao = new TipoPessoaDao();
-                TipoPessoa tipoPessoa1 = new TipoPessoa();
+                ClasseDao upgradeDao = new ClasseDao();
+                Classe classe1 = new Classe();
 
                 System.out.println("Informe o Id do dado a ser atualizado: ");
                 Scanner data = new Scanner(System.in);
                 int idUp = data.nextInt();
 
-                tipoPessoa1.setDescricao("");
-                tipoPessoa1.setId(idUp);
+                classe1.setDescricao("b");
+                classe1.setId(idUp);
 
-                updateDao.Update(tipoPessoa1);
+                upgradeDao.Update(classe1);
                 break;
             case 4:
                 // Read
-                TipoPessoaDao  readDao = new TipoPessoaDao();
+                ClasseDao readDao = new ClasseDao();
 
-                for(TipoPessoa c : readDao.ReadTipoPessoa()){
+                for(Classe c : readDao.ReadClasse()){
 
-                    System.out.println("Id: "+c.getId() +"| Descricao: "+c.getDescricao());
-
+                    System.out.println("Classe "+c.getId() +": "+c.getDescricao());
                 }
+
+//                for(Classe d : readDao.JoinClasse()){
+//
+//                    System.out.println( "? : "+d.getId()+"| sei n: "+d.getDescricao()+"| :"+d.getTipo_fase_id()
+//                    );
+//                }
+
                 break;
             default:
                 System.out.println("Opcao escolhida invalida");

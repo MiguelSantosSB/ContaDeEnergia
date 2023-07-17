@@ -5,7 +5,7 @@ import br.com.contaDeEnergia.dao.PosteDao;
 
 import java.util.Scanner;
 
-public class ClassePoste {
+public class PosteExecute {
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);

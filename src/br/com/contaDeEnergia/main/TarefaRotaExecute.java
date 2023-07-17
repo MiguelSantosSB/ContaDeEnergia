@@ -5,7 +5,7 @@ import br.com.contaDeEnergia.dao.TarefaRotaDao;
 
 import java.util.Scanner;
 
-public class ClasseTarefaRota {
+public class TarefaRotaExecute {
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);

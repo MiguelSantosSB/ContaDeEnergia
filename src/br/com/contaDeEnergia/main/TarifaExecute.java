@@ -5,7 +5,7 @@ import br.com.contaDeEnergia.dao.TarifaDao;
 
 import java.util.Scanner;
 
-public class ClasseTarifa {
+public class TarifaExecute {
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);

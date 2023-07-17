@@ -1,12 +1,11 @@
 package br.com.contaDeEnergia.main;
 
-import br.com.contaDeEnergia.Model.Medidor;
-import br.com.contaDeEnergia.dao.MedidorDao;
+import br.com.contaDeEnergia.Model.TipoPessoa;
+import br.com.contaDeEnergia.dao.TipoPessoaDao;
 
 import java.util.Scanner;
 
-public class ClasseMedidor {
-    private static int num = 3;
+public class TipoPessoaExecute {
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);
@@ -21,48 +20,48 @@ public class ClasseMedidor {
         switch (opcao){
             case 1:
                 // Create
-                MedidorDao medidorDao = new MedidorDao();
-                Medidor medidor = new Medidor();
+                TipoPessoaDao tipoPessoaDao = new TipoPessoaDao();
+                TipoPessoa tipoPessoa = new TipoPessoa();
 
-                medidor.setDescricao("medidor valido");
-                medidor.setRota_id(num);
-                medidor.setPoste_id(num);
+                //funcionario ou cliente
+                tipoPessoa.setDescricao("cliente");
 
-                medidorDao.Create(medidor);
-            break;
+                tipoPessoaDao.Create(tipoPessoa);
+                break;
             case 2:
                 // Delete
-                MedidorDao medidorDelete = new MedidorDao();
+                TipoPessoaDao tpDelete = new TipoPessoaDao();
 
                 System.out.println("Informe o Id do dado a ser deletado: ");
                 Scanner dado = new Scanner(System.in);
                 int id = dado.nextInt();
 
-                medidorDelete.Delete(id);
+                tpDelete.Delete(id);
                 break;
             case 3:
                 // Update
-                MedidorDao updateDao = new MedidorDao();
-                Medidor medidor1 = new Medidor();
+                TipoPessoaDao updateDao = new TipoPessoaDao();
+                TipoPessoa tipoPessoa1 = new TipoPessoa();
 
                 System.out.println("Informe o Id do dado a ser atualizado: ");
                 Scanner data = new Scanner(System.in);
                 int idUp = data.nextInt();
 
-                medidor1.setDescricao("");
-                medidor1.setId(idUp);
+                tipoPessoa1.setDescricao("");
+                tipoPessoa1.setId(idUp);
 
-                updateDao.Update(medidor1);
+                updateDao.Update(tipoPessoa1);
                 break;
             case 4:
-            // Read
-            MedidorDao readDao = new MedidorDao();
+                // Read
+                TipoPessoaDao  readDao = new TipoPessoaDao();
 
-            for(Medidor c : readDao.ReadMedidor()){
+                for(TipoPessoa c : readDao.ReadTipoPessoa()){
 
-                System.out.println("Id Medidor: "+c.getId() +" descricao: "+c.getDescricao());
-                System.out.println("Id rota: "+c.getRota_id()+" Id poste: "+c.getPoste_id());
-            }
+                    System.out.println("Id: "+c.getId() +"| Descricao: "+c.getDescricao());
+
+                }
+                break;
             default:
                 System.out.println("Opcao escolhida invalida");
         }

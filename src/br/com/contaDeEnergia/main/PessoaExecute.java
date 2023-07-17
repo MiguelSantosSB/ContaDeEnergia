@@ -5,7 +5,7 @@ import br.com.contaDeEnergia.dao.PessoaDao;
 
 import java.util.Scanner;
 
-public class ClassePessoa {
+public class PessoaExecute {
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);

@@ -3,12 +3,10 @@ package br.com.contaDeEnergia.main;
 import br.com.contaDeEnergia.Model.Contrato;
 import br.com.contaDeEnergia.dao.ContratoDao;
 
-import java.time.Instant;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Scanner;
 
-public class ClasseContrato {
+public class ContratoExecute {
     private static int num = 3;
     public static void main(String[] args) {
 

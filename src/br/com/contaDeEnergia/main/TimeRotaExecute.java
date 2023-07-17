@@ -5,7 +5,7 @@ import br.com.contaDeEnergia.dao.TimeRotaDao;
 
 import java.util.Scanner;
 
-public class ClasseTimeRota {
+public class TimeRotaExecute {
 
     //public static int num = 3;
     public static void main(String[] args) {

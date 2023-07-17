@@ -1,11 +1,11 @@
 package br.com.contaDeEnergia.main;
 
-import br.com.contaDeEnergia.Model.Cobranca;
-import br.com.contaDeEnergia.dao.CobrancaDao;
+import br.com.contaDeEnergia.Model.Funcionario;
+import br.com.contaDeEnergia.dao.FuncionarioDao;
 
 import java.util.Scanner;
 
-public class ClasseCobranca {
+public class FuncionarioExecute {
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);
@@ -20,48 +20,47 @@ public class ClasseCobranca {
         switch (opcao){
             case 1:
                 // Create
-                CobrancaDao cobrancaDao = new CobrancaDao();
-                Cobranca cobranca = new Cobranca();
+                FuncionarioDao funcionarioDao = new FuncionarioDao();
+                Funcionario funcionario = new Funcionario();
 
-                cobranca.setMes_referencia("junho");
-                cobranca.setAno_referencia("2023");
-                cobranca.setTarifa_id(3);
+                funcionario.setCodigo_funcional("04923340304");
+                funcionario.setPessoa_id(4);;
 
-                cobrancaDao.Create(cobranca);
+                funcionarioDao.Create(funcionario);
                 break;
             case 2:
                 // Delete
-                CobrancaDao cobrancaDaoDelete = new CobrancaDao();
+                FuncionarioDao funcionarioDaoDelete = new FuncionarioDao();
 
                 System.out.println("Informe o Id do dado a ser deletado: ");
                 Scanner dado = new Scanner(System.in);
                 int id = dado.nextInt();
 
-                cobrancaDaoDelete.Delete(id);
+                funcionarioDaoDelete.Delete(id);
                 break;
             case 3:
                 // Update
-                CobrancaDao updateDao = new CobrancaDao();
-                Cobranca cobranca1 = new Cobranca();
+                FuncionarioDao upgradeDao = new FuncionarioDao();
+                Funcionario funcionario1 = new Funcionario();
 
                 System.out.println("Informe o Id do dado a ser atualizado: ");
                 Scanner data = new Scanner(System.in);
                 int idUp = data.nextInt();
 
-                cobranca1.setMes_referencia("julho");
-                cobranca1.setAno_referencia("2023");
-                cobranca1.setId(idUp);
+                funcionario1.setCodigo_funcional("4002345634");
+                funcionario1.setId(idUp);
 
-                updateDao.Update(cobranca1);
+                upgradeDao.Update(funcionario1);
                 break;
             case 4:
                 // Read
-                CobrancaDao readDao = new CobrancaDao();
+                FuncionarioDao readDao = new FuncionarioDao();
 
-                for(Cobranca c : readDao.ReadCobranca()){
-                    System.out.println("Cobanca:"+c.getId());
-                    System.out.println("Cobranca: "+ c.getMes_referencia());
-                    System.out.println("Cobranca: "+c.getAno_referencia());
+                for(Funcionario c : readDao.ReadFuncionario()){
+
+                    System.out.println("Id do funcionario: "+c.getId() +" Codigo funcional: "+c.getCodigo_funcional());
+                    System.out.println("Id pessoa: "+c.getPessoa_id());
+
                 }
                 break;
             default:

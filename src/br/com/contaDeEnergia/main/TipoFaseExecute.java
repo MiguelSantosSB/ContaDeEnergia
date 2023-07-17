@@ -5,7 +5,7 @@ import br.com.contaDeEnergia.dao.TipoFaseDao;
 
 import java.util.Scanner;
 
-public class ClasseTipoFase {
+public class TipoFaseExecute {
     public static void main(String[] args) {
 
         Scanner escolha = new Scanner(System.in);

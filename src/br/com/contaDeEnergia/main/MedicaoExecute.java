@@ -5,7 +5,7 @@ import br.com.contaDeEnergia.dao.MedicaoDao;
 
 import java.util.Scanner;
 
-public class ClasseMedicao {
+public class MedicaoExecute {
     //private static int num = 2;
     public static void main(String[] args) {
 
